@@ -16,7 +16,7 @@
  *  @version 1.0.0  2017-01-16  Patrick Utz  Initial writing and release
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
  
-public class HelloWorld {
+public class Greeter {
 	public static void main( String[] args ) {
 		System.out.println( "Hello, World!" );
     }
