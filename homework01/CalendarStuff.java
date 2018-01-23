@@ -99,7 +99,12 @@ public class CalendarStuff {
    *         be decremented to make the appropriate index value
    */
    public static long daysInMonth( long month, long year ) {
-      return 33;  // replace this with the actual code
+
+      if ( (CalendarStuff.isLeapYear(year)) == true ) {
+        return (daysLeapYear[(int)(--month)]);
+      } else {
+        return (daysNormalYear[(int)(--month)]);
+      }
    }
 
   /**
