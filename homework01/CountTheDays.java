@@ -15,8 +15,8 @@ public class CountTheDays {
     day2   = Long.parseLong( args[4] );
     year2  = Long.parseLong( args[5] );
 
-    long totalDays = CalendarStuff.daysBetween( month1, day1, year1, month2, day2, year2 );
+    long sumOfDays = CalendarStuff.daysBetween( month1, day1, year1, month2, day2, year2 );
 
-    System.out.println( totalDays );
+    System.out.println( "The total amount of days between the two you specified is: " + sumOfDays );
   }
 }
