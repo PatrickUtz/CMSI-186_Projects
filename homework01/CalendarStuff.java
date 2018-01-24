@@ -145,8 +145,29 @@ public class CalendarStuff {
    *         be decremented to make the appropriate index value
    */
    public static boolean isValidDate( long month, long day, long year ) {
-      return true;  // replace this with the actual code
-   }
+      try {
+        Long monthL = new Long( month );
+        Long dayL = new Long( day );
+        Long yearL = new Long( year );
+      }
+      catch (NumberFormatException nfe) {
+        System.out.println( "Please input a valid date value." );
+      }
+      --month;
+      if ( CalendarStuff.isLeapYear(year) ) {
+        if ( ((month >= 0) && (month <= 11)) && ( (1 <= day) && (day <= (daysLeapYear[(int)month])) ) ) {
+          return true;
+        } else {
+          return false;
+        }
+      } else {
+        if ( ((month >= 0) && (month <= 11)) && ( (1 <= day) && (day <= (daysNormalYear[(int)month])) ) ) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+    }
 
   /**
    * A method to return a string version of the month name
