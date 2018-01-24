@@ -254,31 +254,48 @@ public class CalendarStuff {
        }
      }
 
+     int firstYearExtra = 0;
+     int lastYearExtra = 0;
+     int extraLeapDays = 0;
+     int wholeYearDays = 0;
      int totalDays = 0;
+
+     //for testing: System.out.println( firstMonth + " " + firstDay + "  " + firstYear );
 
      //this part accounts for the rest of the days in the beginning year
      for ( int i = 0; i < (firstMonth - 1); i++ ) {
-        totalDays += daysNormalYear[i];
+        firstYearExtra = firstYearExtra + daysNormalYear[i];
      }
-     totalDays += firstDay;
-     totalDays = 365 - totalDays;
+     firstYearExtra += firstDay;
+     firstYearExtra = 365 - firstYearExtra;
+
+    //for testing: System.out.println( firstYearExtra );
 
      //this part accounts for the rest of the days in the ending year
+
      for ( int i = 0; i < (secondMonth - 1); i++ ) {
-        totalDays += daysNormalYear[i];
+        lastYearExtra += daysNormalYear[i];
      }
-     totalDays += secondDay;
+     lastYearExtra += secondDay;
+
+     //for testing: System.out.println( lastYearExtra );
 
      //this part adds all the days in the full years between the two dates
      //this does not account for leap years yet
-     totalDays += ( ((secondYear - 1) - (firstYear + 1)) * 365 );
+     wholeYearDays = wholeYearDays + (int)( ((secondYear) - (++firstYear)) * 365 );
+
+     //for testing: System.out.println( wholeYearDays );
 
      //this part of the code accounts for the leap years and adds the extra days to the totalDays
      for ( int i = 0; i < (secondYear - firstYear + 1); i++ ) {
-        if ( CalendarStuff.isLeapYear( (long)(firstYear + i) ) ) {
-          totalDays =+ 1;
+        if ( CalendarStuff.isLeapYear( (long)(firstYear + (long)i) ) ) {
+          extraLeapDays += 1;
         }
      }
+
+     //for testing: System.out.println( extraLeapDays );
+
+     totalDays = firstYearExtra + lastYearExtra + extraLeapDays + wholeYearDays;
 
      return totalDays;
   }
