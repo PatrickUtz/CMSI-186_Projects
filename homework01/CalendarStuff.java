@@ -159,7 +159,6 @@ public class CalendarStuff {
       }
     }
 
-
   /**
    * A method to return whether a date is a valid date
    * @param    month long    containing month number, starting with "1" for "January"
@@ -227,6 +226,61 @@ public class CalendarStuff {
    * @return          long   count of total number of days
    */
    public static long daysBetween( long month1, long day1, long year1, long month2, long day2, long year2 ) {
-     return 2l;
-   }
+
+     long firstMonth;
+     long firstDay;
+     long firstYear;
+     long secondMonth;
+     long secondDay;
+     long secondYear;
+
+     if ( (CalendarStuff.compareDate( month1, day1, year1, month2, day2, year2 )) == -1 ) {
+       firstYear = year1;
+       firstMonth = month1;
+       firstDay = day1;
+       secondYear = year2;
+       secondMonth = month2;
+       secondDay = day2;
+     } else {
+       if ( (CalendarStuff.compareDate( month1, day1, year1, month2, day2, year2 )) == 1 ) {
+        firstYear = year2;
+        firstMonth = month2;
+        firstDay = day2;
+        secondYear = year1;
+        secondMonth = month1;
+        secondDay = day1;
+       } else {
+         return 0;
+       }
+     }
+
+     int totalDays = 0;
+
+     //this part accounts for the rest of the days in the beginning year
+     for ( int i = 0; i < (firstMonth - 1); i++ ) {
+        totalDays += daysNormalYear[i];
+     }
+     totalDays += firstDay;
+     totalDays = 365 - totalDays;
+
+     //this part accounts for the rest of the days in the ending year
+     for ( int i = 0; i < (secondMonth - 1); i++ ) {
+        totalDays += daysNormalYear[i];
+     }
+     totalDays += secondDay;
+
+     //this part adds all the days in the full years between the two dates
+     //this does not account for leap years yet
+     totalDays += ( ((secondYear - 1) - (firstYear + 1)) * 365 );
+
+     //this part of the code accounts for the leap years and adds the extra days to the totalDays
+     for ( int i = 0; i < (secondYear - firstYear + 1); i++ ) {
+        if ( CalendarStuff.isLeapYear( (long)(firstYear + i) ) ) {
+          totalDays =+ 1;
+        }
+     }
+
+     return totalDays;
+  }
+
 }
