@@ -36,8 +36,8 @@ public class StringStuff {
   public static boolean containsVowel( String s ) {
     String[] vowels  = { "A", "E", "I", "O", "U", "Y" };
     String upper = s.toUpperCase();
-      for ( int i = 0; i < 6; i++ ) {
-        if ( upper.contains(vowels[i])) {
+      for( int i = 0; i < 6; i++ ) {
+        if( upper.contains(vowels[i]) ) {
           return true;
         }
       }
@@ -108,9 +108,14 @@ public class StringStuff {
    * @param s String containing the data to be reversed
    * @return  String containing the reverse of the input string
    */
-   public static String reverse( String s ) {
-      return new String( "kculc eht tahw" );
-   }
+  public static String reverse( String s ) {
+      StringBuilder reverse = new StringBuilder();
+      for ( int i = s.length()-1; i > -1; i-- ) {
+        reverse.append(s.charAt(i));
+      }
+      String reverseString = reverse.toString();
+      return reverseString;
+  }
 
   /**
    * Main method to test the methods in this class
@@ -139,5 +144,6 @@ public class StringStuff {
       System.out.println( "oddsOnly()         returns: " + oddsOnly( "XYloPHonES" ) );
       System.out.println( "oddsOnlyNoDupes()  returns: " + oddsOnlyNoDupes( "XYloPHonES" ) );
       System.out.println( "reverse()          returns: " + reverse( "REHEARSALSZ" ) );
+      System.out.println( reverse( "REHEARSALSZ" ) );
    }
 }
