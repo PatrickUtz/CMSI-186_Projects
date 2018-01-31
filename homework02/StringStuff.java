@@ -68,9 +68,19 @@ public class StringStuff {
    * @param s String containing the data to be parsed for &quot;even&quot; letters
    * @return  String containing the &quot;even&quot; letters from the input
    */
-   public static String evensOnly( String s ) {
-       return new String( "HJHJHJ" );
-   }
+  public static String evensOnly( String s ) {
+    byte[] byteArray = s.getBytes();
+    StringBuilder evenString = new StringBuilder();
+    for( int i = 0; i < s.length(); i++ ) {
+      if( ( (byteArray[i]) > 64 && (byteArray[i]) < 91 ) || ( (byteArray[i]) > 96 && (byteArray[i]) < 123 ) ) {
+        if( ( (byteArray[i])%(0x2) ) == 0 ) {
+          evenString.append(s.charAt(i));
+        }
+      }
+    }
+    String evenStringResult = evenString.toString();
+    return evenStringResult;
+  }
 
   /**
    * Method to return the characters in a string that correspond to the &quot;ODD&quot; index
