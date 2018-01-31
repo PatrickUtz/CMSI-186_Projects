@@ -52,8 +52,12 @@ public class StringStuff {
    * @param s String containing the data to be checked for &quot;palindrome-ness&quot;
    * @return  boolean which is true if this a palindrome, or false otherwise
    */
-   public static boolean isPalindrome( String s ) {
+  public static boolean isPalindrome( String s ) {
+    if( s.equals(StringStuff.reverse(s)) ) {
       return true;
+    } else {
+        return false;
+      }
    }
 
   /**
@@ -144,6 +148,5 @@ public class StringStuff {
       System.out.println( "oddsOnly()         returns: " + oddsOnly( "XYloPHonES" ) );
       System.out.println( "oddsOnlyNoDupes()  returns: " + oddsOnlyNoDupes( "XYloPHonES" ) );
       System.out.println( "reverse()          returns: " + reverse( "REHEARSALSZ" ) );
-      System.out.println( reverse( "REHEARSALSZ" ) );
    }
 }
