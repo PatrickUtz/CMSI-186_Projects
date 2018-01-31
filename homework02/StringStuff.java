@@ -90,9 +90,19 @@ public class StringStuff {
    * @param s String containing the data to be parsed for &quot;odd&quot; letters
    * @return  String containing the &quot;odd&quot; letters from the input
    */
-   public static String oddsOnly( String s ) {
-      return new String( "IKIKIK" );
-   }
+  public static String oddsOnly( String s ) {
+    byte[] byteArray = s.getBytes();
+    StringBuilder oddString = new StringBuilder();
+    for( int i = 0; i < s.length(); i++ ) {
+      if( ( (byteArray[i]) > 64 && (byteArray[i]) < 91 ) || ( (byteArray[i]) > 96 && (byteArray[i]) < 123 ) ) {
+        if( ( (byteArray[i])%(0x2) ) != 0 ) {
+          oddString.append(s.charAt(i));
+        }
+      }
+    }
+    String oddStringResult = oddString.toString();
+    return oddStringResult;
+  }
 
   /**
    * Method to return the characters in a string that correspond to the &quot;EVEN&quot; index
