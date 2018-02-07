@@ -104,6 +104,25 @@ public class StringStuff {
     return oddStringResult;
   }
 
+ /**
+  * Method to return the string without duplicates ; index
+  */
+  public static String removeDupes( String s ) {
+    StringBuilder noDupes = new StringBuilder(s);
+    int initialIndex = 0;
+    for( int i = initialIndex; i < noDupes.length() + 1; i++ ) {
+      for( int j = i + 1; j < noDupes.length(); j++) {
+        if( noDupes.charAt(i) == noDupes.charAt(j) ) {
+          noDupes.deleteCharAt(j);
+          j -= 1;
+        }
+        // System.out.println( "noDupes = " + noDupes );
+      }
+    }
+    String noDupeResult = noDupes.toString();
+    return noDupeResult;
+  }
+
   /**
    * Method to return the characters in a string that correspond to the &quot;EVEN&quot; index
    * numbers of the alphabet, but with no duplicate characters in the resulting string.
@@ -111,8 +130,10 @@ public class StringStuff {
    * @param s String containing the data to be parsed for &quot;even&quot; letters
    * @return  String containing the &quot;even&quot; letters from the input without duplicates
    */
-   public static String evensOnlyNoDupes( String s ) {
-      return new String( "HJ" );
+  public static String evensOnlyNoDupes( String s ) {
+    String evenOnlyWord = evensOnly(s);
+    String evenOnlyNoDupeWord = removeDupes(evenOnlyWord);
+    return evenOnlyNoDupeWord;
    }
 
   /**
@@ -122,9 +143,12 @@ public class StringStuff {
    * @param s String containing the data to be parsed for &quot;odd&quot; letters
    * @return  String containing the &quot;odd&quot; letters from the input without duplicates
    */
-   public static String oddsOnlyNoDupes( String s ) {
-      return new String( "IK" );
-   }
+  public static String oddsOnlyNoDupes( String s ) {
+      String oddOnlyWord = oddsOnly(s);
+      String oddOnlyNoDupeWord = removeDupes(oddOnlyWord);
+      // System.out.println(oddOnlyNoDupeWord);
+      return oddOnlyNoDupeWord;
+  }
 
   /**
    * Method to return the reverse of a string passed as an argument
@@ -168,5 +192,6 @@ public class StringStuff {
       System.out.println( "oddsOnly()         returns: " + oddsOnly( "XYloPHonES" ) );
       System.out.println( "oddsOnlyNoDupes()  returns: " + oddsOnlyNoDupes( "XYloPHonES" ) );
       System.out.println( "reverse()          returns: " + reverse( "REHEARSALSZ" ) );
+      System.out.println( "removeDupes()      returns: " + removeDupes( "California" ) );
    }
 }
