@@ -56,7 +56,7 @@ public class Die {
    */
   public Die( int nSides ) {
     if (nSides < 2) {
-      System.out.println( "Invalid value. Please enter a value greater than 1." );
+      System.out.println( "Invalid side value. Please enter a value greater than 1." );
       System.exit(0);
     } else {
       sides = nSides;
@@ -123,17 +123,78 @@ public class Die {
    * A little test main to check things out
    */
   public static void main( String[] args ) {
-    System.out.println( "Welcome to the Die class!" );
-    Die test = new Die(2);
-    System.out.println(test.roll());
-    System.out.println(test.getValue());
-    System.out.println(test.toString());
-    System.out.println(Die.toString(test));
-    System.out.println("Now testing the setSides method.");
-    test.setSides(5);
-    System.out.println(test.roll());
-    System.out.println(test.getValue());
-    System.out.println(test.toString());
+    System.out.println( "\nWelcome to the Die class!" );
+    System.out.println( "\n *** 6 sided die ***" );
+    Die test1 = new Die(6);
+    System.out.println("Rolling the die you get: " + test1.roll());
+    System.out.println("Rolling the die you get: " + test1.roll());
+    System.out.println("Rolling the die you get: " + test1.roll());
+    System.out.println("Rolling the die you get: " + test1.roll());
+    System.out.println("Testing the getValue method you get: " + test1.getValue());
+    System.out.println("Testing the toString method you get: " + test1.toString());
+    System.out.println("Testing the static toString method you get: " + Die.toString(test1));
+    test1.setSides(2);
+    System.out.println("Testing the setSides method using 2 sides you get: " + test1.roll());
+
+    System.out.println( "\n *** 1000001 sided die ***" );
+    Die test2 = new Die(1000001);
+    System.out.println("Rolling the die you get: " + test2.roll());
+    System.out.println("Rolling the die you get: " + test2.roll());
+    System.out.println("Rolling the die you get: " + test2.roll());
+    System.out.println("Rolling the die you get: " + test2.roll());
+    System.out.println("Testing the getValue method you get: " + test2.getValue());
+    System.out.println("Testing the toString method you get: " + test2.toString());
+    System.out.println("Testing the static toString method you get: " + Die.toString(test2));
+    test2.setSides(2);
+    System.out.println("Testing the setSides method using 2 sides you get: " + test2.roll());
+
+    System.out.println( "\n *** 201 sided die ***" );
+    Die test3 = new Die(201);
+    System.out.println("Rolling the die you get: " + test3.roll());
+    System.out.println("Rolling the die you get: " + test3.roll());
+    System.out.println("Rolling the die you get: " + test3.roll());
+    System.out.println("Rolling the die you get: " + test3.roll());
+    System.out.println("Testing the getValue method you get: " + test3.getValue());
+    System.out.println("Testing the toString method you get: " + test3.toString());
+    System.out.println("Testing the static toString method you get: " + Die.toString(test3));
+    test3.setSides(2);
+    System.out.println("Testing the setSides method using 2 sides you get: " + test3.roll());
+
+    System.out.println( "\n *** 9 sided die ***" );
+    Die test4 = new Die(9);
+    System.out.println("Rolling the die you get: " + test4.roll());
+    System.out.println("Rolling the die you get: " + test4.roll());
+    System.out.println("Rolling the die you get: " + test4.roll());
+    System.out.println("Rolling the die you get: " + test4.roll());
+    System.out.println("Testing the getValue method you get: " + test4.getValue());
+    System.out.println("Testing the toString method you get: " + test4.toString());
+    System.out.println("Testing the static toString method you get: " + Die.toString(test4));
+    test4.setSides(2);
+    System.out.println("Testing the setSides method using 2 sides you get: " + test4.roll());
+
+    System.out.println( "\n *** 23 sided die ***" );
+    Die test5 = new Die(23);
+    System.out.println("Rolling the die you get: " + test5.roll());
+    System.out.println("Rolling the die you get: " + test5.roll());
+    System.out.println("Rolling the die you get: " + test5.roll());
+    System.out.println("Rolling the die you get: " + test5.roll());
+    System.out.println("Testing the getValue method you get: " + test5.getValue());
+    System.out.println("Testing the toString method you get: " + test5.toString());
+    System.out.println("Testing the static toString method you get: " + Die.toString(test5));
+    test5.setSides(2);
+    System.out.println("Testing the setSides method using 2 sides you get: " + test5.roll());
+
+    System.out.println( "\n *** 1 sided die ***" );
+    Die test6 = new Die(1);
+    System.out.println("Rolling the die you get: " + test6.roll());
+    System.out.println("Rolling the die you get: " + test6.roll());
+    System.out.println("Rolling the die you get: " + test6.roll());
+    System.out.println("Rolling the die you get: " + test6.roll());
+    System.out.println("Testing the getValue method you get: " + test6.getValue());
+    System.out.println("Testing the toString method you get: " + test6.toString());
+    System.out.println("Testing the static toString method you get: " + Die.toString(test6));
+    test6.setSides(2);
+    System.out.println("Testing the setSides method using 2 sides you get: " + test6.roll());
   }
 
 }
