@@ -43,6 +43,7 @@ public class Die {
    */
    private int sides;
    private int pips;
+   private int checkRoll;
    private int randDieNum;
    private final int MINIMUM_SIDES = 1;
 
@@ -59,7 +60,7 @@ public class Die {
       System.exit(0);
     } else {
       sides = nSides;
-      pips = 0;
+      checkRoll = 0;
     }
   }
 
@@ -70,7 +71,7 @@ public class Die {
   public int roll() {
     Random randNum = new Random();
     randDieNum = randNum.nextInt(sides) + 1;
-    pips += 1;
+    checkRoll += 1;
     return randDieNum;
   }
 
@@ -82,7 +83,7 @@ public class Die {
    * @return the pip count of THIS die instance
    */
   public int getValue() {
-    if( pips != 0 ) {
+    if( checkRoll != 0 ) {
       return randDieNum;
     } else {
       return 0;
@@ -95,6 +96,7 @@ public class Die {
    * @throws      IllegalArgumentException
    */
   public void setSides( int sides ) {
+    this.sides = sides;
   }
 
   /**
@@ -102,7 +104,11 @@ public class Die {
    * @return String representation of this Die
    */
   public String toString() {
-    return "";
+    if( checkRoll != 0 ) {
+      return "[" + randDieNum + "]";
+    } else {
+      return "0";
+    }
   }
 
   /**
@@ -110,7 +116,7 @@ public class Die {
    * @return String representation of this Die
    */
   public static String toString( Die d ) {
-    return "";
+    return d.toString();
   }
 
   /**
@@ -118,9 +124,16 @@ public class Die {
    */
   public static void main( String[] args ) {
     System.out.println( "Welcome to the Die class!" );
-    Die test = new Die(5);
+    Die test = new Die(2);
     System.out.println(test.roll());
     System.out.println(test.getValue());
+    System.out.println(test.toString());
+    System.out.println(Die.toString(test));
+    System.out.println("Now testing the setSides method.");
+    test.setSides(5);
+    System.out.println(test.roll());
+    System.out.println(test.getValue());
+    System.out.println(test.toString());
   }
 
 }
