@@ -55,8 +55,8 @@ public class Die {
    * Note: parameter must be checked for validity; invalid value must throw "IllegalArgumentException"
    */
   public Die( int nSides ) {
-    if (nSides < 3) {
-      System.out.println( "Invalid side value. Please enter a value greater than 2." );
+    if (nSides < 5) {
+      System.out.println( "Invalid side value. Please enter a value greater than 4." );
       System.exit(0);
     } else {
       sides = nSides;
@@ -96,8 +96,8 @@ public class Die {
    * @throws      IllegalArgumentException
    */
   public void setSides( int sides ) {
-    if (sides < 3) {
-      System.out.println( "Invalid side value. Please enter a value greater than 2." );
+    if (sides < 5) {
+      System.out.println( "Invalid side value. Please enter a value greater than 4." );
       System.exit(0);
     } else {
       this.sides = sides;
@@ -130,7 +130,7 @@ public class Die {
   public static void main( String[] args ) {
     System.out.println( "\nWelcome to the Die class!" );
     System.out.println( "\n *** 6 sided die ***" );
-    Die test1 = new Die(6);
+    Die test1 = new Die(8);
     System.out.println("Rolling the die you get: " + test1.roll());
     System.out.println("Rolling the die you get: " + test1.roll());
     System.out.println("Rolling the die you get: " + test1.roll());
@@ -138,7 +138,7 @@ public class Die {
     System.out.println("Testing the getValue method you get: " + test1.getValue());
     System.out.println("Testing the toString method you get: " + test1.toString());
     System.out.println("Testing the static toString method you get: " + Die.toString(test1));
-    test1.setSides(3);
+    test1.setSides(5);
     System.out.println("Testing the setSides method using 2 sides you get: " + test1.roll());
 
     System.out.println( "\n *** 1000001 sided die ***" );
@@ -150,7 +150,7 @@ public class Die {
     System.out.println("Testing the getValue method you get: " + test2.getValue());
     System.out.println("Testing the toString method you get: " + test2.toString());
     System.out.println("Testing the static toString method you get: " + Die.toString(test2));
-    test2.setSides(3);
+    test2.setSides(5);
     System.out.println("Testing the setSides method using 2 sides you get: " + test2.roll());
 
     System.out.println( "\n *** 201 sided die ***" );
@@ -162,7 +162,7 @@ public class Die {
     System.out.println("Testing the getValue method you get: " + test3.getValue());
     System.out.println("Testing the toString method you get: " + test3.toString());
     System.out.println("Testing the static toString method you get: " + Die.toString(test3));
-    test3.setSides(3);
+    test3.setSides(5);
     System.out.println("Testing the setSides method using 2 sides you get: " + test3.roll());
 
     System.out.println( "\n *** 9 sided die ***" );
@@ -174,7 +174,7 @@ public class Die {
     System.out.println("Testing the getValue method you get: " + test4.getValue());
     System.out.println("Testing the toString method you get: " + test4.toString());
     System.out.println("Testing the static toString method you get: " + Die.toString(test4));
-    test4.setSides(3);
+    test4.setSides(5);
     System.out.println("Testing the setSides method using 2 sides you get: " + test4.roll());
 
     System.out.println( "\n *** 23 sided die ***" );
@@ -186,7 +186,7 @@ public class Die {
     System.out.println("Testing the getValue method you get: " + test5.getValue());
     System.out.println("Testing the toString method you get: " + test5.toString());
     System.out.println("Testing the static toString method you get: " + Die.toString(test5));
-    test5.setSides(3);
+    test5.setSides(5);
     System.out.println("Testing the setSides method using 2 sides you get: " + test5.roll());
 
     System.out.println( "\n *** 1 sided die ***" );
@@ -198,7 +198,7 @@ public class Die {
     System.out.println("Testing the getValue method you get: " + test6.getValue());
     System.out.println("Testing the toString method you get: " + test6.toString());
     System.out.println("Testing the static toString method you get: " + Die.toString(test6));
-    test6.setSides(3);
+    test6.setSides(5);
     System.out.println("Testing the setSides method using 2 sides you get: " + test6.roll());
   }
 
