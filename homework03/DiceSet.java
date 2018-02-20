@@ -30,24 +30,23 @@
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 public class DiceSet {
 
-  /**
-   * private instance data
-   */
-   private int count;
-   private int sides;
-   private Die[] ds = null;
+/**
+  * private instance data
+  */
+  private int count;
+  private int sides;
+  private Die[] ds = null;
 
-   // public constructor:
-  /**
-   * constructor
-   * @param  count int value containing total dice count
-   * @param  sides int value containing the number of pips on each die
-   * @throws IllegalArgumentException if one or both arguments don't make sense
-   * @note   parameters are checked for validity; invalid values throw "IllegalArgumentException"
-   */
+  // public constructor:
+/**
+  * constructor
+  * @param  count int value containing total dice count
+  * @param  sides int value containing the number of pips on each die
+  * @throws IllegalArgumentException if one or both arguments don't make sense
+  * @note   parameters are checked for validity; invalid values throw "IllegalArgumentException"
+  */
   public DiceSet( int count, int sides ) {
     if( count < 1 || sides < 4 ) {
-      // ds[0] = new Die(8);
       System.out.println("Invalid values. Please enter a count 1 or greater and sides 4 or greater");
     } else {
         this.count = count;
@@ -60,9 +59,9 @@ public class DiceSet {
       }
   }
 
-  /**
-   * @return the sum of all the dice values in the set
-   */
+/**
+  * @return the sum of all the dice values in the set
+  */
   public int sum() {
     int sum = 0;
     for( int i = 0; i < ds.length; i++ ) {
@@ -71,61 +70,61 @@ public class DiceSet {
     return sum;
   }
 
-  /**
-   * Randomly rolls all of the dice in this set
-   *  NOTE: you will need to use one of the "toString()" methods to obtain
-   *  the values of the dice in the set
-   */
+/**
+  * Randomly rolls all of the dice in this set
+  *  NOTE: you will need to use one of the "toString()" methods to obtain
+  *  the values of the dice in the set
+  */
   public void roll() {
     for( int i = 0; i < ds.length; i++ ) {
       ds[i].roll();
     }
   }
 
-  /**
-   * Randomly rolls a single die of the dice in this set indexed by 'dieIndex'
-   * @param  dieIndex int of which die to roll
-   * @return the integer value of the newly rolled die
-   * @trhows IllegalArgumentException if the index is out of range
-   */
+/**
+  * Randomly rolls a single die of the dice in this set indexed by 'dieIndex'
+  * @param  dieIndex int of which die to roll
+  * @return the integer value of the newly rolled die
+  * @trhows IllegalArgumentException if the index is out of range
+  */
   public void rollIndividual( int dieIndex ) {
     ds[dieIndex].roll();
   }
 
-  /**
-   * Gets the value of the die in this set indexed by 'dieIndex'
-   * @param  dieIndex int of which die to roll
-   * @trhows IllegalArgumentException if the index is out of range
-   */
+/**
+  * Gets the value of the die in this set indexed by 'dieIndex'
+  * @param  dieIndex int of which die to roll
+  * @trhows IllegalArgumentException if the index is out of range
+  */
   public int getIndividual( int dieIndex ) {
     return ds[dieIndex].getValue();
   }
 
-  /**
-   * @return Public Instance method that returns a String representation of the DiceSet instance
-   */
-   public String toString() {
-     StringBuilder dsArray = new StringBuilder();
-     for( int i = 0; i < ds.length; i++ ) {
-       dsArray.append( "[" + ds[i].getValue() + "] " );
-     }
-     String dsArrayString = dsArray.toString();
-     return dsArrayString;
-   }
+/**
+  * @return Public Instance method that returns a String representation of the DiceSet instance
+  */
+  public String toString() {
+    StringBuilder dsArray = new StringBuilder();
+    for( int i = 0; i < ds.length; i++ ) {
+      dsArray.append( "[" + ds[i].getValue() + "] " );
+    }
+    String dsArrayString = dsArray.toString();
+    return dsArrayString;
+  }
 
-  /**
-   * @return Class-wide version of the preceding instance method
-   */
+/**
+  * @return Class-wide version of the preceding instance method
+  */
   public static String toString( DiceSet ds ) {
     return ds.toString();
   }
 
-  /**
-   * @return  tru iff this set is identical to the set passed as an argument
-   */
-   public boolean isIdentical( DiceSet ds ) {
-      return true;
-   }
+/**
+  * @return  tru iff this set is identical to the set passed as an argument
+  */
+  public boolean isIdentical( DiceSet ds ) {
+    return true;
+  }
   /**
    * A little test main to check things out
    */
@@ -141,5 +140,3 @@ public class DiceSet {
   }
 
 }
-   // DiceSet test = new DiceSet(4,6);
-   // System.out.println("Array with 4 dice of 6 sides each: ");
