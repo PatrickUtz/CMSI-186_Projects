@@ -47,10 +47,15 @@ public class DiceSet {
    */
   public DiceSet( int count, int sides ) {
     if( count < 1 || sides < 4 ) {
+      // ds[0] = new Die(8);
       System.out.println("Invalid values. Please enter a count 1 or greater and sides 4 or greater");
     } else {
-        for ( int i = 0; i < count; i++ ) {
+        this.count = count;
+        this.sides = sides;
+        this.ds = new Die[count];
+        for( int i = 0; i < count; i++ ) {
           ds[i] = new Die( sides );
+          ds[i].roll();
         }
       }
   }
@@ -58,17 +63,24 @@ public class DiceSet {
   /**
    * @return the sum of all the dice values in the set
    */
-   public int sum() {
-      return 0;
-   }
+  public int sum() {
+    int sum = 0;
+    for( int i = 0; i < ds.length; i++ ) {
+      sum += ds[i].getValue();
+    }
+    return sum;
+  }
 
   /**
    * Randomly rolls all of the dice in this set
    *  NOTE: you will need to use one of the "toString()" methods to obtain
    *  the values of the dice in the set
    */
-   public void roll() {
-   }
+  public void roll() {
+    for( int i = 0; i < ds.length; i++ ) {
+      ds[i].roll();
+    }
+  }
 
   /**
    * Randomly rolls a single die of the dice in this set indexed by 'dieIndex'
@@ -76,18 +88,18 @@ public class DiceSet {
    * @return the integer value of the newly rolled die
    * @trhows IllegalArgumentException if the index is out of range
    */
-   public int rollIndividual( int dieIndex ) {
-      return 0;
-   }
+  public void rollIndividual( int dieIndex ) {
+    ds[dieIndex].roll();
+  }
 
   /**
    * Gets the value of the die in this set indexed by 'dieIndex'
    * @param  dieIndex int of which die to roll
    * @trhows IllegalArgumentException if the index is out of range
    */
-   public int getIndividual( int dieIndex ) {
-      return -999;
-   }
+  public int getIndividual( int dieIndex ) {
+    return ds[dieIndex].getValue();
+  }
 
   /**
    * @return Public Instance method that returns a String representation of the DiceSet instance
@@ -95,7 +107,7 @@ public class DiceSet {
    public String toString() {
      StringBuilder dsArray = new StringBuilder();
      for( int i = 0; i < ds.length; i++ ) {
-       dsArray.append(ds[i]);
+       dsArray.append( "[" + ds[i].getValue() + "] " );
      }
      String dsArrayString = dsArray.toString();
      return dsArrayString;
@@ -117,11 +129,17 @@ public class DiceSet {
   /**
    * A little test main to check things out
    */
-   public static void main( String[] args ) {
-      // You do this part!
-   }
-
-   DiceSet test = new DiceSet(4,6);
-   // System.out.println("Array with 4 dice of 6 sides each: " + test.toString());
+  public static void main( String[] args ) {
+    DiceSet test = new DiceSet(5,8);
+    System.out.println("Original array: " + test.toString());
+    System.out.println("The sume of the array: " + test.sum());
+    test.roll();
+    System.out.println("The reult of rolling the dice: " + test.toString());
+    test.rollIndividual(3);
+    System.out.println("Rolling the third die you get: " + test.getIndividual(3));
+    System.out.println("The reult of rolling the die you now get: " + test.toString());
+  }
 
 }
+   // DiceSet test = new DiceSet(4,6);
+   // System.out.println("Array with 4 dice of 6 sides each: ");
