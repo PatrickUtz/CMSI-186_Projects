@@ -91,7 +91,7 @@ public class Die {
   }
 
   /**
-   * @param  int  the number of sides to set/reset for this Die instance
+   * @param int  the number of sides to set/reset for this Die instance
    * @return      The new number of sides, in case anyone is looking
    * @throws      IllegalArgumentException
    */
