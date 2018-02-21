@@ -123,20 +123,28 @@ public class DiceSet {
   * @return  tru iff this set is identical to the set passed as an argument
   */
   public boolean isIdentical( DiceSet ds ) {
-    return true;
+    if( sum() == ds.sum() ){
+      return true;
+    } else {
+      return false;
+    }
   }
+
   /**
    * A little test main to check things out
    */
   public static void main( String[] args ) {
     DiceSet test = new DiceSet(5,8);
-    System.out.println("Original array: " + test.toString());
+    DiceSet test2 = new DiceSet(5,9);
+    System.out.println("Print the original array: " + test.toString());
+    System.out.println("Print the original array using classwide version: " + DiceSet.toString(test));
     System.out.println("The sume of the array: " + test.sum());
     test.roll();
     System.out.println("The reult of rolling the dice: " + test.toString());
     test.rollIndividual(3);
     System.out.println("Rolling the third die you get: " + test.getIndividual(3));
     System.out.println("The reult of rolling the die you now get: " + test.toString());
+    System.out.println(test.isIdentical( test2 ));
   }
 
 }
