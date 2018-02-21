@@ -134,17 +134,67 @@ public class DiceSet {
    * A little test main to check things out
    */
   public static void main( String[] args ) {
-    DiceSet test = new DiceSet(5,8);
-    DiceSet test2 = new DiceSet(5,9);
-    System.out.println("Print the original array: " + test.toString());
-    System.out.println("Print the original array using classwide version: " + DiceSet.toString(test));
-    System.out.println("The sume of the array: " + test.sum());
-    test.roll();
-    System.out.println("The reult of rolling the dice: " + test.toString());
-    test.rollIndividual(3);
-    System.out.println("Rolling the third die you get: " + test.getIndividual(3));
-    System.out.println("The reult of rolling the die you now get: " + test.toString());
-    System.out.println(test.isIdentical( test2 ));
-  }
+    try {
+      System.out.println("\n\n*** Testing a normal dice set ***\n");
+      DiceSet test = new DiceSet(5,8);
+      DiceSet test2 = new DiceSet(5,9);
+      System.out.println("Printing the original set you get: " + test.toString());
+      System.out.println("Printing the original set using classwide version: " + DiceSet.toString(test));
+      System.out.println("The sum of the array: " + test.sum());
+      test.roll();
+      System.out.println("The reult of rolling the dice set: " + test.toString());
+      test.rollIndividual(3);
+      System.out.println("Rolling the third die you get: " + test.getIndividual(3));
+      System.out.println("The resulting dice set is now: " + test.toString());
+      System.out.println("Comparing " + test.toString() + " with " + test2.toString() +
+                          " using the isIdentical method you get: " + test.isIdentical( test2 ));
 
+
+      System.out.println("\n\n*** Testing a large dice set ***\n");
+      DiceSet test3 = new DiceSet(50,8);
+      System.out.println("Printing the original set you get: " + test3.toString());
+      System.out.println("Printing the original set using classwide version: " + DiceSet.toString(test3));
+      System.out.println("The sum of the array: " + test3.sum());
+      test3.roll();
+      System.out.println("The reult of rolling the dice set: " + test3.toString());
+      test3.rollIndividual(3);
+      System.out.println("Rolling the third die you get: " + test3.getIndividual(3));
+      System.out.println("The resulting dice set is now: " + test3.toString());
+      System.out.println("Comparing " + test3.toString() + " with " + test2.toString() +
+                          " using the isIdentical method you get: " + test3.isIdentical( test2 ));
+
+
+      System.out.println("\n\n*** Testing a small dice set ***\n");
+      DiceSet test4 = new DiceSet(2,8);
+      System.out.println("Printing the original set you get: " + test4.toString());
+      System.out.println("Printing the original set using classwide version: " + DiceSet.toString(test4));
+      System.out.println("The sum of the array: " + test4.sum());
+      test4.roll();
+      System.out.println("The reult of rolling the dice set: " + test4.toString());
+      test4.rollIndividual(1);
+      System.out.println("Rolling die 1 you get: " + test4.getIndividual(1));
+      System.out.println("The resulting dice set is now: " + test4.toString());
+      System.out.println("Comparing " + test4.toString() + " with " + test2.toString() +
+                          " using the isIdentical method you get: " + test4.isIdentical( test2 ));
+
+
+      System.out.println("\n\n*** Testing an invalid dice set ***\n");
+      DiceSet test5 = new DiceSet(0,8);
+      System.out.println("Printing the original set you get: " + test5.toString());
+      System.out.println("Printing the original set using classwide version: " + DiceSet.toString(test5));
+      System.out.println("The sum of the array: " + test5.sum());
+      test5.roll();
+      System.out.println("The reult of rolling the dice set: " + test5.toString());
+      test5.rollIndividual(3);
+      System.out.println("Rolling the third die you get: " + test5.getIndividual(3));
+      System.out.println("The resulting dice set is now: " + test5.toString());
+      System.out.println("Comparing " + test5.toString() + " with " + test2.toString() +
+                          " using the isIdentical method you get: " + test5.isIdentical( test2 ));
+
+    }
+    catch( NullPointerException ioe ) {
+        System.out.println( "Caught NullPointerException." );
+
+    }
+  }
 }
