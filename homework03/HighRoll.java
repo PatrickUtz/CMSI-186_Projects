@@ -1,6 +1,6 @@
 /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  *  File name     :  HighRoll.java
- *  Purpose       :  TUI that uses DiceSet.java to play a game
+ *  Purpose       :  TUI that uses DiceSet.java to play a cool game
  *  Author        :  Patrick Utz
  *  Date          :  2018-02-22
  *  Description   :
