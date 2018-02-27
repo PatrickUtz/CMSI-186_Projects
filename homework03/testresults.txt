@@ -1,0 +1,1238 @@
+
+Welcome to the Die class!
+
+ *** 6 sided die ***
+Rolling the die you get: 7
+Rolling the die you get: 5
+Rolling the die you get: 8
+Rolling the die you get: 3
+Testing the getValue method you get: 3
+Testing the toString method you get: [3]
+Testing the static toString method you get: [3]
+Testing the setSides method using 2 sides you get: 3
+
+ *** 1000001 sided die ***
+Rolling the die you get: 472799
+Rolling the die you get: 577257
+Rolling the die you get: 824543
+Rolling the die you get: 109376
+Testing the getValue method you get: 109376
+Testing the toString method you get: [109376]
+Testing the static toString method you get: [109376]
+Testing the setSides method using 2 sides you get: 4
+
+ *** 201 sided die ***
+Rolling the die you get: 21
+Rolling the die you get: 111
+Rolling the die you get: 107
+Rolling the die you get: 13
+Testing the getValue method you get: 13
+Testing the toString method you get: [13]
+Testing the static toString method you get: [13]
+Testing the setSides method using 2 sides you get: 1
+
+ *** 9 sided die ***
+Rolling the die you get: 1
+Rolling the die you get: 1
+Rolling the die you get: 5
+Rolling the die you get: 6
+Testing the getValue method you get: 6
+Testing the toString method you get: [6]
+Testing the static toString method you get: [6]
+Testing the setSides method using 2 sides you get: 5
+
+ *** 23 sided die ***
+Rolling the die you get: 17
+Rolling the die you get: 3
+Rolling the die you get: 17
+Rolling the die you get: 11
+Testing the getValue method you get: 11
+Testing the toString method you get: [11]
+Testing the static toString method you get: [11]
+Testing the setSides method using 2 sides you get: 3
+
+ *** 1 sided die ***
+Invalid side value. Please enter a value greater than 4.
+
+
+*** Testing a normal dice set ***
+
+Printing the original set you get: [6] [6] [1] [3] [7]
+Printing the original set using classwide version: [6] [6] [1] [3] [7]
+The sum of the array: 23
+The reult of rolling the dice set: [5] [1] [4] [8] [6]
+Rolling the third die you get: 6
+The resulting dice set is now: [5] [1] [4] [6] [6]
+Comparing [5] [1] [4] [6] [6]  with [8] [7] [5] [4] [1]  using the isIdentical method you get: false
+
+
+*** Testing a large dice set ***
+
+Printing the original set you get: [3] [3] [3] [6] [5] [3] [6] [2] [1] [5] [2] [7] [5] [7] [2] [7] [7] [8] [2] [7] [1] [2] [2] [4] [5] [3] [1] [4] [4] [6] [2] [6] [4] [2] [7] [3] [6] [3] [8] [8] [2] [3] [6] [6] [6] [5] [8] [7] [5] [7]
+Printing the original set using classwide version: [3] [3] [3] [6] [5] [3] [6] [2] [1] [5] [2] [7] [5] [7] [2] [7] [7] [8] [2] [7] [1] [2] [2] [4] [5] [3] [1] [4] [4] [6] [2] [6] [4] [2] [7] [3] [6] [3] [8] [8] [2] [3] [6] [6] [6] [5] [8] [7] [5] [7]
+The sum of the array: 227
+The reult of rolling the dice set: [3] [2] [4] [3] [5] [5] [8] [7] [7] [3] [7] [6] [4] [1] [7] [7] [2] [6] [4] [8] [8] [8] [5] [8] [5] [4] [2] [6] [2] [1] [2] [7] [8] [5] [1] [8] [2] [5] [1] [3] [3] [6] [8] [4] [6] [3] [6] [6] [8] [4]
+Rolling the third die you get: 7
+The resulting dice set is now: [3] [2] [4] [7] [5] [5] [8] [7] [7] [3] [7] [6] [4] [1] [7] [7] [2] [6] [4] [8] [8] [8] [5] [8] [5] [4] [2] [6] [2] [1] [2] [7] [8] [5] [1] [8] [2] [5] [1] [3] [3] [6] [8] [4] [6] [3] [6] [6] [8] [4]
+Comparing [3] [2] [4] [7] [5] [5] [8] [7] [7] [3] [7] [6] [4] [1] [7] [7] [2] [6] [4] [8] [8] [8] [5] [8] [5] [4] [2] [6] [2] [1] [2] [7] [8] [5] [1] [8] [2] [5] [1] [3] [3] [6] [8] [4] [6] [3] [6] [6] [8] [4]  with [8] [7] [5] [4] [1]  using the isIdentical method you get: false
+
+
+*** Testing a small dice set ***
+
+Printing the original set you get: [2] [8]
+Printing the original set using classwide version: [2] [8]
+The sum of the array: 10
+The reult of rolling the dice set: [5] [5]
+Rolling die 1 you get: 1
+The resulting dice set is now: [5] [1]
+Comparing [5] [1]  with [8] [7] [5] [4] [1]  using the isIdentical method you get: false
+
+
+*** Testing an invalid dice set ***
+
+Invalid values. Please enter a count 1 or greater and sides 4 or greater
+Caught NullPointerException.
+TESTING THE DIE CLASS: TEST CONSTRUCTOR FOR INVALID NUMBERS OF SIDES:
+Invalid side value. Please enter a value greater than 4.
+
+
+
+
+
+
+
+
+
+
+
+
+ *** Welcome to the High Roll Game Simulation! ***
+
+
+Please enter one of the following options:
+
+| [Typing '1'] --> Rolls all the dice.                                |
+| [Typing '2'] --> Rolls a single die. Enter which die after the 2.   |
+| [Typing '3'] --> Calculates the score for this set.                 |
+| [Typing '4'] --> Saves this score as a high score.                  |
+| [Typing '5'] --> Displays the high score.                           |
+| [Typing 'Q'] --> Quits the program.                                 |
+
+>>
+
+
+
+
+
+
+
+
+
+
+All the dice have been rolled.
+Current dice set: [3] [2] [1] [6] [5]
+
+Please enter one of the following options:
+
+| [Typing '1'] --> Rolls all the dice.                                |
+| [Typing '2'] --> Rolls a single die. Enter which die after the 2.   |
+| [Typing '3'] --> Calculates the score for this set.                 |
+| [Typing '4'] --> Saves this score as a high score.                  |
+| [Typing '5'] --> Displays the high score.                           |
+| [Typing 'Q'] --> Quits the program.                                 |
+
+>>
+
+
+
+
+
+
+
+
+
+
+All the dice have been rolled.
+Current dice set: [6] [5] [2] [4] [2]
+
+Please enter one of the following options:
+
+| [Typing '1'] --> Rolls all the dice.                                |
+| [Typing '2'] --> Rolls a single die. Enter which die after the 2.   |
+| [Typing '3'] --> Calculates the score for this set.                 |
+| [Typing '4'] --> Saves this score as a high score.                  |
+| [Typing '5'] --> Displays the high score.                           |
+| [Typing 'Q'] --> Quits the program.                                 |
+
+>>
+
+
+
+
+
+
+
+
+
+
+All the dice have been rolled.
+Current dice set: [1] [4] [3] [5] [4]
+
+Please enter one of the following options:
+
+| [Typing '1'] --> Rolls all the dice.                                |
+| [Typing '2'] --> Rolls a single die. Enter which die after the 2.   |
+| [Typing '3'] --> Calculates the score for this set.                 |
+| [Typing '4'] --> Saves this score as a high score.                  |
+| [Typing '5'] --> Displays the high score.                           |
+| [Typing 'Q'] --> Quits the program.                                 |
+
+>>
+
+
+
+
+
+
+
+
+
+
+
+Type some text please!
+
+Please enter one of the following options:
+
+| [Typing '1'] --> Rolls all the dice.                                |
+| [Typing '2'] --> Rolls a single die. Enter which die after the 2.   |
+| [Typing '3'] --> Calculates the score for this set.                 |
+| [Typing '4'] --> Saves this score as a high score.                  |
+| [Typing '5'] --> Displays the high score.                           |
+| [Typing 'Q'] --> Quits the program.                                 |
+
+>>
+
+
+
+
+
+
+
+
+
+
+The score for this set is: 17
+Current dice set: [1] [4] [3] [5] [4]
+
+Please enter one of the following options:
+
+| [Typing '1'] --> Rolls all the dice.                                |
+| [Typing '2'] --> Rolls a single die. Enter which die after the 2.   |
+| [Typing '3'] --> Calculates the score for this set.                 |
+| [Typing '4'] --> Saves this score as a high score.                  |
+| [Typing '5'] --> Displays the high score.                           |
+| [Typing 'Q'] --> Quits the program.                                 |
+
+>>
+
+
+
+
+
+
+
+
+
+
+
+Type some text please!
+
+Please enter one of the following options:
+
+| [Typing '1'] --> Rolls all the dice.                                |
+| [Typing '2'] --> Rolls a single die. Enter which die after the 2.   |
+| [Typing '3'] --> Calculates the score for this set.                 |
+| [Typing '4'] --> Saves this score as a high score.                  |
+| [Typing '5'] --> Displays the high score.                           |
+| [Typing 'Q'] --> Quits the program.                                 |
+
+>>
+
+
+
+
+
+
+
+
+
+
+
+The high score is: 0
+
+Please enter one of the following options:
+
+| [Typing '1'] --> Rolls all the dice.                                |
+| [Typing '2'] --> Rolls a single die. Enter which die after the 2.   |
+| [Typing '3'] --> Calculates the score for this set.                 |
+| [Typing '4'] --> Saves this score as a high score.                  |
+| [Typing '5'] --> Displays the high score.                           |
+| [Typing 'Q'] --> Quits the program.                                 |
+
+>>
+
+
+
+
+
+
+
+
+
+
+
+Type some text please!
+
+Please enter one of the following options:
+
+| [Typing '1'] --> Rolls all the dice.                                |
+| [Typing '2'] --> Rolls a single die. Enter which die after the 2.   |
+| [Typing '3'] --> Calculates the score for this set.                 |
+| [Typing '4'] --> Saves this score as a high score.                  |
+| [Typing '5'] --> Displays the high score.                           |
+| [Typing 'Q'] --> Quits the program.                                 |
+
+>>
+
+
+
+
+
+
+
+
+
+
+
+Type some text please!
+
+Please enter one of the following options:
+
+| [Typing '1'] --> Rolls all the dice.                                |
+| [Typing '2'] --> Rolls a single die. Enter which die after the 2.   |
+| [Typing '3'] --> Calculates the score for this set.                 |
+| [Typing '4'] --> Saves this score as a high score.                  |
+| [Typing '5'] --> Displays the high score.                           |
+| [Typing 'Q'] --> Quits the program.                                 |
+
+>>
+
+
+
+
+
+
+
+
+
+
+The score for this set is: 17
+Current dice set: [1] [4] [3] [5] [4]
+
+Please enter one of the following options:
+
+| [Typing '1'] --> Rolls all the dice.                                |
+| [Typing '2'] --> Rolls a single die. Enter which die after the 2.   |
+| [Typing '3'] --> Calculates the score for this set.                 |
+| [Typing '4'] --> Saves this score as a high score.                  |
+| [Typing '5'] --> Displays the high score.                           |
+| [Typing 'Q'] --> Quits the program.                                 |
+
+>>
+
+
+
+
+
+
+
+
+
+
+
+Score saved. This is a new high score!
+
+Please enter one of the following options:
+
+| [Typing '1'] --> Rolls all the dice.                                |
+| [Typing '2'] --> Rolls a single die. Enter which die after the 2.   |
+| [Typing '3'] --> Calculates the score for this set.                 |
+| [Typing '4'] --> Saves this score as a high score.                  |
+| [Typing '5'] --> Displays the high score.                           |
+| [Typing 'Q'] --> Quits the program.                                 |
+
+>>
+
+
+
+
+
+
+
+
+
+
+
+The high score is: 17
+
+Please enter one of the following options:
+
+| [Typing '1'] --> Rolls all the dice.                                |
+| [Typing '2'] --> Rolls a single die. Enter which die after the 2.   |
+| [Typing '3'] --> Calculates the score for this set.                 |
+| [Typing '4'] --> Saves this score as a high score.                  |
+| [Typing '5'] --> Displays the high score.                           |
+| [Typing 'Q'] --> Quits the program.                                 |
+
+>>
+
+
+
+
+
+
+
+
+
+
+All the dice have been rolled.
+Current dice set: [3] [2] [3] [6] [2]
+
+Please enter one of the following options:
+
+| [Typing '1'] --> Rolls all the dice.                                |
+| [Typing '2'] --> Rolls a single die. Enter which die after the 2.   |
+| [Typing '3'] --> Calculates the score for this set.                 |
+| [Typing '4'] --> Saves this score as a high score.                  |
+| [Typing '5'] --> Displays the high score.                           |
+| [Typing 'Q'] --> Quits the program.                                 |
+
+>>
+
+
+
+
+
+
+
+
+
+
+All the dice have been rolled.
+Current dice set: [5] [2] [4] [5] [4]
+
+Please enter one of the following options:
+
+| [Typing '1'] --> Rolls all the dice.                                |
+| [Typing '2'] --> Rolls a single die. Enter which die after the 2.   |
+| [Typing '3'] --> Calculates the score for this set.                 |
+| [Typing '4'] --> Saves this score as a high score.                  |
+| [Typing '5'] --> Displays the high score.                           |
+| [Typing 'Q'] --> Quits the program.                                 |
+
+>>
+
+
+
+
+
+
+
+
+
+
+
+Type some text please!
+
+Please enter one of the following options:
+
+| [Typing '1'] --> Rolls all the dice.                                |
+| [Typing '2'] --> Rolls a single die. Enter which die after the 2.   |
+| [Typing '3'] --> Calculates the score for this set.                 |
+| [Typing '4'] --> Saves this score as a high score.                  |
+| [Typing '5'] --> Displays the high score.                           |
+| [Typing 'Q'] --> Quits the program.                                 |
+
+>>
+
+
+
+
+
+
+
+
+
+
+
+The high score is: 17
+
+Please enter one of the following options:
+
+| [Typing '1'] --> Rolls all the dice.                                |
+| [Typing '2'] --> Rolls a single die. Enter which die after the 2.   |
+| [Typing '3'] --> Calculates the score for this set.                 |
+| [Typing '4'] --> Saves this score as a high score.                  |
+| [Typing '5'] --> Displays the high score.                           |
+| [Typing 'Q'] --> Quits the program.                                 |
+
+>>
+
+
+
+
+
+
+
+
+
+
+
+Type some text please!
+
+Please enter one of the following options:
+
+| [Typing '1'] --> Rolls all the dice.                                |
+| [Typing '2'] --> Rolls a single die. Enter which die after the 2.   |
+| [Typing '3'] --> Calculates the score for this set.                 |
+| [Typing '4'] --> Saves this score as a high score.                  |
+| [Typing '5'] --> Displays the high score.                           |
+| [Typing 'Q'] --> Quits the program.                                 |
+
+>>
+
+
+
+
+
+
+
+
+
+
+All the dice have been rolled.
+Current dice set: [1] [5] [1] [5] [1]
+
+Please enter one of the following options:
+
+| [Typing '1'] --> Rolls all the dice.                                |
+| [Typing '2'] --> Rolls a single die. Enter which die after the 2.   |
+| [Typing '3'] --> Calculates the score for this set.                 |
+| [Typing '4'] --> Saves this score as a high score.                  |
+| [Typing '5'] --> Displays the high score.                           |
+| [Typing 'Q'] --> Quits the program.                                 |
+
+>>
+
+
+
+
+
+
+
+
+
+
+The score for this set is: 13
+Current dice set: [1] [5] [1] [5] [1]
+
+Please enter one of the following options:
+
+| [Typing '1'] --> Rolls all the dice.                                |
+| [Typing '2'] --> Rolls a single die. Enter which die after the 2.   |
+| [Typing '3'] --> Calculates the score for this set.                 |
+| [Typing '4'] --> Saves this score as a high score.                  |
+| [Typing '5'] --> Displays the high score.                           |
+| [Typing 'Q'] --> Quits the program.                                 |
+
+>>
+
+
+
+
+
+
+
+
+
+
+
+Score saved. Not the highest score.
+
+Please enter one of the following options:
+
+| [Typing '1'] --> Rolls all the dice.                                |
+| [Typing '2'] --> Rolls a single die. Enter which die after the 2.   |
+| [Typing '3'] --> Calculates the score for this set.                 |
+| [Typing '4'] --> Saves this score as a high score.                  |
+| [Typing '5'] --> Displays the high score.                           |
+| [Typing 'Q'] --> Quits the program.                                 |
+
+>>
+
+
+
+
+
+
+
+
+
+
+
+The high score is: 17
+
+Please enter one of the following options:
+
+| [Typing '1'] --> Rolls all the dice.                                |
+| [Typing '2'] --> Rolls a single die. Enter which die after the 2.   |
+| [Typing '3'] --> Calculates the score for this set.                 |
+| [Typing '4'] --> Saves this score as a high score.                  |
+| [Typing '5'] --> Displays the high score.                           |
+| [Typing 'Q'] --> Quits the program.                                 |
+
+>>
+
+
+
+
+
+
+
+
+
+
+
+ *** Welcome to the High Roll Game Simulation! ***
+
+
+Please enter one of the following options:
+
+| [Typing '1'] --> Rolls all the dice.                                |
+| [Typing '2'] --> Rolls a single die. Enter which die after the 2.   |
+| [Typing '3'] --> Calculates the score for this set.                 |
+| [Typing '4'] --> Saves this score as a high score.                  |
+| [Typing '5'] --> Displays the high score.                           |
+| [Typing 'Q'] --> Quits the program.                                 |
+
+>>
+
+
+
+
+
+
+
+
+
+
+All the dice have been rolled.
+Current dice set: [16] [14] [12] [4] [3] [5] [14] [9] [3] [10] [16]
+
+Please enter one of the following options:
+
+| [Typing '1'] --> Rolls all the dice.                                |
+| [Typing '2'] --> Rolls a single die. Enter which die after the 2.   |
+| [Typing '3'] --> Calculates the score for this set.                 |
+| [Typing '4'] --> Saves this score as a high score.                  |
+| [Typing '5'] --> Displays the high score.                           |
+| [Typing 'Q'] --> Quits the program.                                 |
+
+>>
+
+
+
+
+
+
+
+
+
+
+All the dice have been rolled.
+Current dice set: [9] [4] [10] [9] [10] [12] [16] [7] [8] [10] [1]
+
+Please enter one of the following options:
+
+| [Typing '1'] --> Rolls all the dice.                                |
+| [Typing '2'] --> Rolls a single die. Enter which die after the 2.   |
+| [Typing '3'] --> Calculates the score for this set.                 |
+| [Typing '4'] --> Saves this score as a high score.                  |
+| [Typing '5'] --> Displays the high score.                           |
+| [Typing 'Q'] --> Quits the program.                                 |
+
+>>
+
+
+
+
+
+
+
+
+
+
+All the dice have been rolled.
+Current dice set: [8] [7] [11] [12] [13] [10] [2] [10] [17] [14] [12]
+
+Please enter one of the following options:
+
+| [Typing '1'] --> Rolls all the dice.                                |
+| [Typing '2'] --> Rolls a single die. Enter which die after the 2.   |
+| [Typing '3'] --> Calculates the score for this set.                 |
+| [Typing '4'] --> Saves this score as a high score.                  |
+| [Typing '5'] --> Displays the high score.                           |
+| [Typing 'Q'] --> Quits the program.                                 |
+
+>>
+
+
+
+
+
+
+
+
+
+
+
+Type some text please!
+
+Please enter one of the following options:
+
+| [Typing '1'] --> Rolls all the dice.                                |
+| [Typing '2'] --> Rolls a single die. Enter which die after the 2.   |
+| [Typing '3'] --> Calculates the score for this set.                 |
+| [Typing '4'] --> Saves this score as a high score.                  |
+| [Typing '5'] --> Displays the high score.                           |
+| [Typing 'Q'] --> Quits the program.                                 |
+
+>>
+
+
+
+
+
+
+
+
+
+
+All the dice have been rolled.
+Current dice set: [1] [7] [8] [9] [2] [8] [11] [4] [12] [12] [15]
+
+Please enter one of the following options:
+
+| [Typing '1'] --> Rolls all the dice.                                |
+| [Typing '2'] --> Rolls a single die. Enter which die after the 2.   |
+| [Typing '3'] --> Calculates the score for this set.                 |
+| [Typing '4'] --> Saves this score as a high score.                  |
+| [Typing '5'] --> Displays the high score.                           |
+| [Typing 'Q'] --> Quits the program.                                 |
+
+>>
+
+
+
+
+
+
+
+
+
+
+
+Type some text please!
+
+Please enter one of the following options:
+
+| [Typing '1'] --> Rolls all the dice.                                |
+| [Typing '2'] --> Rolls a single die. Enter which die after the 2.   |
+| [Typing '3'] --> Calculates the score for this set.                 |
+| [Typing '4'] --> Saves this score as a high score.                  |
+| [Typing '5'] --> Displays the high score.                           |
+| [Typing 'Q'] --> Quits the program.                                 |
+
+>>
+
+
+
+
+
+
+
+
+
+
+All the dice have been rolled.
+Current dice set: [14] [8] [13] [12] [15] [16] [11] [14] [4] [13] [5]
+
+Please enter one of the following options:
+
+| [Typing '1'] --> Rolls all the dice.                                |
+| [Typing '2'] --> Rolls a single die. Enter which die after the 2.   |
+| [Typing '3'] --> Calculates the score for this set.                 |
+| [Typing '4'] --> Saves this score as a high score.                  |
+| [Typing '5'] --> Displays the high score.                           |
+| [Typing 'Q'] --> Quits the program.                                 |
+
+>>
+
+
+
+
+
+
+
+
+
+
+
+Type some text please!
+
+Please enter one of the following options:
+
+| [Typing '1'] --> Rolls all the dice.                                |
+| [Typing '2'] --> Rolls a single die. Enter which die after the 2.   |
+| [Typing '3'] --> Calculates the score for this set.                 |
+| [Typing '4'] --> Saves this score as a high score.                  |
+| [Typing '5'] --> Displays the high score.                           |
+| [Typing 'Q'] --> Quits the program.                                 |
+
+>>
+
+
+
+
+
+
+
+
+
+
+'7' is an invalid response. Please enter a valid option.
+
+
+Please enter one of the following options:
+
+| [Typing '1'] --> Rolls all the dice.                                |
+| [Typing '2'] --> Rolls a single die. Enter which die after the 2.   |
+| [Typing '3'] --> Calculates the score for this set.                 |
+| [Typing '4'] --> Saves this score as a high score.                  |
+| [Typing '5'] --> Displays the high score.                           |
+| [Typing 'Q'] --> Quits the program.                                 |
+
+>>
+
+
+
+
+
+
+
+
+
+
+The score for this set is: 125
+Current dice set: [14] [8] [13] [12] [15] [16] [11] [14] [4] [13] [5]
+
+Please enter one of the following options:
+
+| [Typing '1'] --> Rolls all the dice.                                |
+| [Typing '2'] --> Rolls a single die. Enter which die after the 2.   |
+| [Typing '3'] --> Calculates the score for this set.                 |
+| [Typing '4'] --> Saves this score as a high score.                  |
+| [Typing '5'] --> Displays the high score.                           |
+| [Typing 'Q'] --> Quits the program.                                 |
+
+>>
+
+
+
+
+
+
+
+
+
+
+
+Score saved. This is a new high score!
+
+Please enter one of the following options:
+
+| [Typing '1'] --> Rolls all the dice.                                |
+| [Typing '2'] --> Rolls a single die. Enter which die after the 2.   |
+| [Typing '3'] --> Calculates the score for this set.                 |
+| [Typing '4'] --> Saves this score as a high score.                  |
+| [Typing '5'] --> Displays the high score.                           |
+| [Typing 'Q'] --> Quits the program.                                 |
+
+>>
+
+
+
+
+
+
+
+
+
+
+
+The high score is: 125
+
+Please enter one of the following options:
+
+| [Typing '1'] --> Rolls all the dice.                                |
+| [Typing '2'] --> Rolls a single die. Enter which die after the 2.   |
+| [Typing '3'] --> Calculates the score for this set.                 |
+| [Typing '4'] --> Saves this score as a high score.                  |
+| [Typing '5'] --> Displays the high score.                           |
+| [Typing 'Q'] --> Quits the program.                                 |
+
+>>
+
+
+
+
+
+
+
+
+
+
+All the dice have been rolled.
+Current dice set: [4] [4] [12] [1] [15] [4] [13] [5] [7] [7] [5]
+
+Please enter one of the following options:
+
+| [Typing '1'] --> Rolls all the dice.                                |
+| [Typing '2'] --> Rolls a single die. Enter which die after the 2.   |
+| [Typing '3'] --> Calculates the score for this set.                 |
+| [Typing '4'] --> Saves this score as a high score.                  |
+| [Typing '5'] --> Displays the high score.                           |
+| [Typing 'Q'] --> Quits the program.                                 |
+
+>>
+
+
+
+
+
+
+
+
+
+
+All the dice have been rolled.
+Current dice set: [13] [5] [10] [14] [12] [3] [2] [1] [5] [15] [17]
+
+Please enter one of the following options:
+
+| [Typing '1'] --> Rolls all the dice.                                |
+| [Typing '2'] --> Rolls a single die. Enter which die after the 2.   |
+| [Typing '3'] --> Calculates the score for this set.                 |
+| [Typing '4'] --> Saves this score as a high score.                  |
+| [Typing '5'] --> Displays the high score.                           |
+| [Typing 'Q'] --> Quits the program.                                 |
+
+>>
+
+
+
+
+
+
+
+
+
+
+
+Type some text please!
+
+Please enter one of the following options:
+
+| [Typing '1'] --> Rolls all the dice.                                |
+| [Typing '2'] --> Rolls a single die. Enter which die after the 2.   |
+| [Typing '3'] --> Calculates the score for this set.                 |
+| [Typing '4'] --> Saves this score as a high score.                  |
+| [Typing '5'] --> Displays the high score.                           |
+| [Typing 'Q'] --> Quits the program.                                 |
+
+>>
+
+
+
+
+
+
+
+
+
+
+
+The high score is: 125
+
+Please enter one of the following options:
+
+| [Typing '1'] --> Rolls all the dice.                                |
+| [Typing '2'] --> Rolls a single die. Enter which die after the 2.   |
+| [Typing '3'] --> Calculates the score for this set.                 |
+| [Typing '4'] --> Saves this score as a high score.                  |
+| [Typing '5'] --> Displays the high score.                           |
+| [Typing 'Q'] --> Quits the program.                                 |
+
+>>
+
+
+
+
+
+
+
+
+
+
+
+Type some text please!
+
+Please enter one of the following options:
+
+| [Typing '1'] --> Rolls all the dice.                                |
+| [Typing '2'] --> Rolls a single die. Enter which die after the 2.   |
+| [Typing '3'] --> Calculates the score for this set.                 |
+| [Typing '4'] --> Saves this score as a high score.                  |
+| [Typing '5'] --> Displays the high score.                           |
+| [Typing 'Q'] --> Quits the program.                                 |
+
+>>
+
+
+
+
+
+
+
+
+
+
+The score for this set is: 97
+Current dice set: [13] [5] [10] [14] [12] [3] [2] [1] [5] [15] [17]
+
+Please enter one of the following options:
+
+| [Typing '1'] --> Rolls all the dice.                                |
+| [Typing '2'] --> Rolls a single die. Enter which die after the 2.   |
+| [Typing '3'] --> Calculates the score for this set.                 |
+| [Typing '4'] --> Saves this score as a high score.                  |
+| [Typing '5'] --> Displays the high score.                           |
+| [Typing 'Q'] --> Quits the program.                                 |
+
+>>
+
+
+
+
+
+
+
+
+
+
+The score for this set is: 97
+Current dice set: [13] [5] [10] [14] [12] [3] [2] [1] [5] [15] [17]
+
+Please enter one of the following options:
+
+| [Typing '1'] --> Rolls all the dice.                                |
+| [Typing '2'] --> Rolls a single die. Enter which die after the 2.   |
+| [Typing '3'] --> Calculates the score for this set.                 |
+| [Typing '4'] --> Saves this score as a high score.                  |
+| [Typing '5'] --> Displays the high score.                           |
+| [Typing 'Q'] --> Quits the program.                                 |
+
+>>
+
+
+
+
+
+
+
+
+
+
+
+Score saved. Not the highest score.
+
+Please enter one of the following options:
+
+| [Typing '1'] --> Rolls all the dice.                                |
+| [Typing '2'] --> Rolls a single die. Enter which die after the 2.   |
+| [Typing '3'] --> Calculates the score for this set.                 |
+| [Typing '4'] --> Saves this score as a high score.                  |
+| [Typing '5'] --> Displays the high score.                           |
+| [Typing 'Q'] --> Quits the program.                                 |
+
+>>
+
+
+
+
+
+
+
+
+
+
+
+The high score is: 125
+
+Please enter one of the following options:
+
+| [Typing '1'] --> Rolls all the dice.                                |
+| [Typing '2'] --> Rolls a single die. Enter which die after the 2.   |
+| [Typing '3'] --> Calculates the score for this set.                 |
+| [Typing '4'] --> Saves this score as a high score.                  |
+| [Typing '5'] --> Displays the high score.                           |
+| [Typing 'Q'] --> Quits the program.                                 |
+
+>> Invalid side value. Please enter a value greater than 4.
+
+
+
+
+
+
+
+
+
+
+
+
+ *** Welcome to the High Roll Game Simulation! ***
+
+
+Please enter one of the following options:
+
+| [Typing '1'] --> Rolls all the dice.                                |
+| [Typing '2'] --> Rolls a single die. Enter which die after the 2.   |
+| [Typing '3'] --> Calculates the score for this set.                 |
+| [Typing '4'] --> Saves this score as a high score.                  |
+| [Typing '5'] --> Displays the high score.                           |
+| [Typing 'Q'] --> Quits the program.                                 |
+
+>>
+
+
+
+
+
+
+
+
+
+
+All the dice have been rolled.
+Current dice set: [1] [1] [3] [5] [4] [5] [2] [3] [4] [3] [3] [5] [1] [5] [3] [1] [3] [2] [5] [3] [2] [2] [3] [4] [4] [4] [1] [1] [4]
+
+Please enter one of the following options:
+
+| [Typing '1'] --> Rolls all the dice.                                |
+| [Typing '2'] --> Rolls a single die. Enter which die after the 2.   |
+| [Typing '3'] --> Calculates the score for this set.                 |
+| [Typing '4'] --> Saves this score as a high score.                  |
+| [Typing '5'] --> Displays the high score.                           |
+| [Typing 'Q'] --> Quits the program.                                 |
+
+>>
+
+
+
+
+
+
+
+
+
+
+All the dice have been rolled.
+Current dice set: [2] [5] [1] [3] [4] [3] [5] [4] [3] [5] [1] [1] [1] [3] [4] [1] [2] [1] [5] [4] [5] [2] [2] [5] [4] [1] [5] [2] [2]
+
+Please enter one of the following options:
+
+| [Typing '1'] --> Rolls all the dice.                                |
+| [Typing '2'] --> Rolls a single die. Enter which die after the 2.   |
+| [Typing '3'] --> Calculates the score for this set.                 |
+| [Typing '4'] --> Saves this score as a high score.                  |
+| [Typing '5'] --> Displays the high score.                           |
+| [Typing 'Q'] --> Quits the program.                                 |
+
+>>
+
+
+
+
+
+
+
+
+
+
+All the dice have been rolled.
+Current dice set: [2] [1] [3] [4] [4] [2] [2] [5] [5] [1] [3] [2] [5] [5] [1] [4] [2] [2] [2] [4] [5] [3] [5] [5] [3] [2] [3] [1] [5]
+
+Please enter one of the following options:
+
+| [Typing '1'] --> Rolls all the dice.                                |
+| [Typing '2'] --> Rolls a single die. Enter which die after the 2.   |
+| [Typing '3'] --> Calculates the score for this set.                 |
+| [Typing '4'] --> Saves this score as a high score.                  |
+| [Typing '5'] --> Displays the high score.                           |
+| [Typing 'Q'] --> Quits the program.                                 |
+
+>>
+
+
+
+
+
+
+
+
+
+
+
+Type some text please!
+
+Please enter one of the following options:
+
+| [Typing '1'] --> Rolls all the dice.                                |
+| [Typing '2'] --> Rolls a single die. Enter which die after the 2.   |
+| [Typing '3'] --> Calculates the score for this set.                 |
+| [Typing '4'] --> Saves this score as a high score.                  |
+| [Typing '5'] --> Displays the high score.                           |
+| [Typing 'Q'] --> Quits the program.                                 |
+
+>>
+
+PROGRAM WON'T RUN FINAL TEST SERIES FOR 29 DICE WITH 4 SIDES EACH.
+CHANGED TO 5 SIDES, BUT STILL WON'T RUN.  GETS THE FOLLOWING ERROR MESSAGE:
+
+   Exception in thread "main" java.lang.NumberFormatException: For input string: ""
+        at java.lang.NumberFormatException.forInputString(Unknown Source)
+        at java.lang.Integer.parseInt(Unknown Source)
+        at java.lang.Integer.parseInt(Unknown Source)
+        at HighRoll.main(HighRoll.java:55)
+
