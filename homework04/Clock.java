@@ -164,7 +164,17 @@ public class Clock {
   *  @return String value of the current clock
   */
   public String toString() {
-    return "Clock string, dangit!";
+    getHour();
+    getMinute();
+    getInstantSeconds();
+    String patternHour = "00:";
+    String patternMinute = "00:";
+    String patternSeconds = "00.000";
+    DecimalFormat decimalFormatHour = new DecimalFormat(patternHour);
+    DecimalFormat decimalFormatMinute = new DecimalFormat(patternMinute);
+    DecimalFormat decimalFormatSeconds = new DecimalFormat(patternSeconds);
+    String format = decimalFormatHour.format(hour) + decimalFormatMinute.format(minute) + decimalFormatSeconds.format(second);
+    return format;
   }
 
   /**
