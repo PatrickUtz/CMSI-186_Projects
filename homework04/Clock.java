@@ -18,6 +18,8 @@
  *  @version 1.0.1  2018-02-22  Patrick Utz   Added methods
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
+import java.text.DecimalFormat;
+
 public class Clock {
   /**
    *  Class field definintions go here
@@ -28,9 +30,14 @@ public class Clock {
   private static final double HOUR_HAND_DEGREES_PER_SECOND = 0.00834;
   private static final double MINUTE_HAND_DEGREES_PER_SECOND = 0.1;
 
-  private static double currentTime = 0;
+  private static double totalSec = 0;
   private static double angle;
   private static double timeSlice;
+  private static double hour;
+  private static double minute;
+  private static double second;
+  private static double hourAngle;
+  private static double minuteAngle;
 
   /**
    *  Constructor goes here
@@ -47,11 +54,12 @@ public class Clock {
    *  @return double-precision value of the current clock tick
   */
   public double tick() {
-    currentTime += timeSlice;
-    return currentTime;
+    totalSec += timeSlice;
+    return totalSec;
   }
 
   // /**
+  //  ****** NO NEED TO VALIDATE -> TAKEN CARE OF IN ClockSolver MAIN ******
   //  *  Method to validate the angle argument
   //  *  @param   argValue  String from the main programs args[0] input
   //  *  @return  double-precision value of the argument
@@ -85,7 +93,11 @@ public class Clock {
   *  @return double-precision value of the hour hand location
   */
   public double getHourHandAngle() {
-    return 0.0;
+    hourAngle = HOUR_HAND_DEGREES_PER_SECOND * totalSec;
+    while( Math.abs(hourAngle) > 180 ) {
+      hourAngle -= 180;
+    }
+    return hourAngle;
   }
 
   /**
@@ -93,7 +105,11 @@ public class Clock {
   *  @return double-precision value of the minute hand location
   */
   public double getMinuteHandAngle() {
-    return 0.0;
+    minuteAngle = MINUTE_HAND_DEGREES_PER_SECOND * totalSec;
+    while( Math.abs(minuteAngle) > 180 ) {
+      minuteAngle -= 180;
+    }
+    return minuteAngle;
   }
 
   /**
@@ -101,7 +117,37 @@ public class Clock {
   *  @return double-precision value of the angle between the two hands
   */
   public double getHandAngle() {
-    return 0.0;
+    hourAngle = getHourHandAngle();
+    minuteAngle = getMinuteHandAngle();
+    double handAngle = Math.abs( hourAngle - minuteAngle );
+    return handAngle;
+  }
+
+  /**
+  *  Method to calculate and return the current hour
+  *  @return double-precision value of the hour
+  */
+  public double getHour() {
+    hour = Math.floor( totalSec/3600 );
+    return hour;
+  }
+
+  /**
+  *  Method to calculate and return the current minute
+  *  @return double-precision value of the minute
+  */
+  public double getMinute() {
+    minute = Math.floor( (totalSec - (hour*3600))/60 );
+    return minute;
+  }
+
+  /**
+  *  Method to calculate and return the seconds
+  *  @return double-precision value of seconds
+  */
+  public double getInstantSeconds() {
+    second = totalSec - ( hour*3600 ) - ( minute*60 );
+    return second;
   }
 
   /**
@@ -110,7 +156,7 @@ public class Clock {
   *  @return double-precision value the total seconds private variable
   */
   public double getTotalSeconds() {
-    return 0.0;
+    return totalSec;
   }
 
   /**
