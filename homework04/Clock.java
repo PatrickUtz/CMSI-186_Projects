@@ -38,6 +38,8 @@ public class Clock {
   private static double second;
   private static double hourAngle;
   private static double minuteAngle;
+  private static double handAngle1;
+  private static double handAngle2;
 
   /**
    *  Constructor goes here
@@ -94,9 +96,9 @@ public class Clock {
   */
   public double getHourHandAngle() {
     hourAngle = HOUR_HAND_DEGREES_PER_SECOND * totalSec;
-    while( Math.abs(hourAngle) > 180 ) {
-      hourAngle -= 180;
-    }
+    // while( Math.abs(hourAngle) > 180 ) {
+    //   hourAngle -= 180;
+    // }
     return hourAngle;
   }
 
@@ -106,8 +108,9 @@ public class Clock {
   */
   public double getMinuteHandAngle() {
     minuteAngle = MINUTE_HAND_DEGREES_PER_SECOND * totalSec;
-    while( Math.abs(minuteAngle) > 180 ) {
-      minuteAngle -= 180;
+    // if( minuteAngle > )
+    while( Math.abs(minuteAngle) >= 360 ) {
+      minuteAngle -= 360;
     }
     return minuteAngle;
   }
@@ -116,10 +119,18 @@ public class Clock {
   *  Method to calculate and return the angle between the hands
   *  @return double-precision value of the angle between the two hands
   */
-  public double getHandAngle() {
+  public double[] getHandAngle() {
     hourAngle = getHourHandAngle();
     minuteAngle = getMinuteHandAngle();
-    double handAngle = Math.abs( hourAngle - minuteAngle );
+    // double handAngle = Math.abs( hourAngle - minuteAngle );
+    if( minuteAngle >= hourAngle ) {
+      handAngle1 = minuteAngle - hourAngle;
+      handAngle2 = 360 - handAngle1;
+    } else {
+      handAngle2 = hourAngle - minuteAngle;
+      handAngle1 = 360 - handAngle2;
+    }
+    double[] handAngle = {handAngle1, handAngle2};
     return handAngle;
   }
 
