@@ -27,7 +27,7 @@ public class ClockSolver {
   private final  double DEFAULT_TIME_SLICE_SECONDS = 60.0;
   private static double angle = -1;
   private static double timeSlice = -1;
-  private final static double EPSILON_VALUE       = 0.1;      // small value for double-precision comparisons
+  private final static double EPSILON_VALUE       = 0.67;      // small value for double-precision comparisons
 
   /**
   *  Constructor
@@ -82,15 +82,19 @@ public class ClockSolver {
     checkIfValid( args );
     ClockSolver cse = new ClockSolver();
     Clock clock = new Clock( angle, timeSlice );
-    // double[] timeValues = new double[3];
     System.out.println( "\n   Hello world, from the ClockSolver program!!\n\n" );
     while( clock.getTotalSeconds() < 43200 ) {
-      double angleNow = clock.getHandAngle();
-      if( Math.abs( angleNow - angle ) < EPSILON_VALUE ) {
+      double[] angleNow = clock.getHandAngle();
+      if( Math.abs( angleNow[0] - angle ) < EPSILON_VALUE ) {
         System.out.println( clock.toString() );
         clock.tick();
       } else {
-        clock.tick();
+        if( Math.abs( angleNow[1] - angle ) < EPSILON_VALUE ) {
+          System.out.println( clock.toString() );
+          clock.tick();
+        } else {
+          clock.tick();
+        }
       }
     }
     System.exit( 0 );
