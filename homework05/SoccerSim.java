@@ -27,39 +27,50 @@ public class SoccerSim {
 
   private static double totalSec = 0;
   private static double timeSlice;
+  private static Ball[] balls = null;
 
 
   /***************************
    *  The Constructor
   ****************************/
-  public SoccerSim( double angle, double timeSlice ) {
-    this.timeSlice = timeSlice;
+  public SoccerSim( String[] args ) {
+      readValues(args);
+      SoccerClock clock = new SoccerClock(timeSlice);
   }
 
   public static void readValues( String[] args ) {
-
     try {
       if( args.length < 4 ) {
         System.out.println( "Not enough values inputted.\n" );
         System.exit(-2);
       } else if( args.length % 4 == 0 ) {
-          timeSlice = 1;
+          balls = new Ball[args.length];
+          timeSlice = DEFAULT_TIME_SLICE_IN_SECONDS;
           int n = 0;
           for( int i = 0; i < ((args.length)/4); i++ ) {
             double xPosition = Double.parseDouble(args[n + 0]);
             double yPosition = Double.parseDouble(args[n + 1]);
             double xVelocity = Double.parseDouble(args[n + 2]);
             double yVelocity = Double.parseDouble(args[n + 3]);
+            Ball ball = new Ball(xPosition, yPosition, xVelocity, yVelocity, timeSlice);
+            balls[i] = ball;
             n += 4;
           }
         } else if( args.length % 4 == 1 ) {
+          balls = new Ball[args.length - 1];
           timeSlice = Double.parseDouble(args[args.length - 1]);
+          if( timeSlice < 0 || timeSlice > 1800 ) {
+            System.out.println("Invalid time slice! Please enter a value between 0 and 1800 next time.");
+            System.exit(-2);
+          }
           int n = 0;
           for( int i = 0; i < ((args.length - 1)/4); i++ ) {
             double xPosition = Double.parseDouble(args[n + 0]);
             double yPosition = Double.parseDouble(args[n + 1]);
             double xVelocity = Double.parseDouble(args[n + 2]);
             double yVelocity = Double.parseDouble(args[n + 3]);
+            Ball ball = new Ball(xPosition, yPosition, xVelocity, yVelocity, timeSlice);
+            balls[i] = ball;
             n += 4;
           }
         } else {
@@ -73,6 +84,29 @@ public class SoccerSim {
       }
     }
 
+
+  public static void initialStat() {
+    System.out.println("\n\n\n\nHello! Welcome to the Soccer Simulation Program.\n");
+    System.out.println("Initial Conditions: \n\n" + "Time Slice: " + timeSlice + "\n");
+    for( int i = 1; i < balls.length; i++ ) {
+      System.out.println("Ball " + i + " status:  " + balls[0].getStatus()+"\n");
+    }
+  }
+
+  public static void currentStat() {
+    for( int i = 1; i < balls.length; i++ ) {
+      System.out.println("Ball " + i + " status:  " + balls[0].getStatus()+"\n");
+    }
+  }
+
+  public static void calcCollision() {
+
+    while (true) {
+      break;
+    }
+  }
+
+
 /**
 *  The main program starts here
 *  remember the constraints from the project description
@@ -80,11 +114,10 @@ public class SoccerSim {
 *  @param  args  String array of the arguments from the command line
 */
   public static void main( String args[] ) {
-    readValues( args );
-    // System.out.println(timeSlice);
-    // ClockSolver cse = new ClockSolver();
-    // Clock clock = new Clock( angle, timeSlice );
-    // System.out.println( "\n   Hello world, from the ClockSolver program!!\n\n" );
+    SoccerSim ss = new SoccerSim( args );
+    ss.initialStat();
+    ss.calcCollision();
+    // ss.currentStat();
     System.exit( 0 );
   }
 }
