@@ -23,16 +23,35 @@ public class Ball {
    */
   // private static final double DEFAULT_TIME_SLICE_IN_SECONDS = 1.0;
 
-  private static double[] balls = {4};
+  private static double[] balls = new double[5];
 
   /***************************
    *  The Constructor
   ****************************/
-  public Ball( double xPosition, double yPosition, double xVelocity, double yVelocity ) {
+  public Ball( double xPosition, double yPosition, double xVelocity, double yVelocity, double timeSlice ) {
     balls[0] = xPosition;
     balls[1] = yPosition;
     balls[2] = xVelocity;
     balls[3] = yVelocity;
+    balls[4] = timeSlice;
+  }
+
+  public void updateVelocity() {
+    balls[2] = balls[2] * (Math.pow(0.99,balls[4]));
+    balls[3] = balls[3] * (Math.pow(0.99,balls[4]));
+  }
+
+  public void updatePosition() {
+    balls[0] += balls[2]*balls[4];
+    balls[1] += balls[3]*balls[4];
+  }
+
+  public String getStatus() {
+    StringBuilder status = new StringBuilder();
+    status.append("Position = <" + balls[0] + ", " + balls[1] + ">");
+    status.append("\t  Velocity = <" + balls[2] + ", " + balls[3] + ">");
+    // status.append("\tTime Slice: <" + balls[4] + ">");
+    return status.toString();
   }
 
   public static void main( String args[] ) {
