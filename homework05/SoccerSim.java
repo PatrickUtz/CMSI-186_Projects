@@ -23,11 +23,25 @@ public class SoccerSim {
   /**
    *  Class field definitions go here
    */
-  private static final double DEFAULT_TIME_SLICE_IN_SECONDS = 1.0;
+  private final double DEFAULT_TIME_SLICE_IN_SECONDS = 1.0;
 
-  private static double totalSec = 0;
-  private static double timeSlice;
-  private static Ball[] balls = null;
+  private double totalSec = 0;
+  private double timeSlice;
+  private Ball[] balls = null;
+  private final double RADIUS = .370833;
+  private final double DIAMETER = .741666;
+  private int ballHit1;
+  private int ballHit2;
+  private int ballHitPole = -1;
+  private int ballOutside;
+  private SoccerClock clock;
+  private double xPos;
+  private double yPos;
+  private double xVel;
+  private double yVel;
+  private int numberBalls;
+  // private int ballsAtRest = 0;
+  private double fieldBorder = 1000;
 
 
   /***************************
@@ -35,43 +49,39 @@ public class SoccerSim {
   ****************************/
   public SoccerSim( String[] args ) {
       readValues(args);
-      SoccerClock clock = new SoccerClock(timeSlice);
+      clock = new SoccerClock(timeSlice);
   }
 
-  public static void readValues( String[] args ) {
+  public void readValues( String[] args ) {
     try {
       if( args.length < 4 ) {
         System.out.println( "Not enough values inputted.\n" );
         System.exit(-2);
       } else if( args.length % 4 == 0 ) {
-          balls = new Ball[args.length];
+          numberBalls = (args.length)/4;
+          balls = new Ball[numberBalls];
           timeSlice = DEFAULT_TIME_SLICE_IN_SECONDS;
-          int n = 0;
-          for( int i = 0; i < ((args.length)/4); i++ ) {
-            double xPosition = Double.parseDouble(args[n + 0]);
-            double yPosition = Double.parseDouble(args[n + 1]);
-            double xVelocity = Double.parseDouble(args[n + 2]);
-            double yVelocity = Double.parseDouble(args[n + 3]);
-            Ball ball = new Ball(xPosition, yPosition, xVelocity, yVelocity, timeSlice);
-            balls[i] = ball;
-            n += 4;
+          for( int i = 0; i < (numberBalls); i++ ) {
+            xPos = Double.parseDouble(args[4*i + 0]);
+            yPos = Double.parseDouble(args[4*i + 1]);
+            xVel = Double.parseDouble(args[4*i + 2]);
+            yVel = Double.parseDouble(args[4*i + 3]);
+            balls[i] = new Ball(xPos, yPos, xVel, yVel, timeSlice);
           }
         } else if( args.length % 4 == 1 ) {
-          balls = new Ball[args.length - 1];
+          numberBalls = (args.length - 1)/4;
+          balls = new Ball[numberBalls];
           timeSlice = Double.parseDouble(args[args.length - 1]);
           if( timeSlice < 0 || timeSlice > 1800 ) {
             System.out.println("Invalid time slice! Please enter a value between 0 and 1800 next time.");
             System.exit(-2);
           }
-          int n = 0;
-          for( int i = 0; i < ((args.length - 1)/4); i++ ) {
-            double xPosition = Double.parseDouble(args[n + 0]);
-            double yPosition = Double.parseDouble(args[n + 1]);
-            double xVelocity = Double.parseDouble(args[n + 2]);
-            double yVelocity = Double.parseDouble(args[n + 3]);
-            Ball ball = new Ball(xPosition, yPosition, xVelocity, yVelocity, timeSlice);
-            balls[i] = ball;
-            n += 4;
+          for( int i = 0; i < (numberBalls); i++ ) {
+            xPos = Double.parseDouble(args[4*i + 0]);
+            yPos = Double.parseDouble(args[4*i + 1]);
+            xVel = Double.parseDouble(args[4*i + 2]);
+            yVel = Double.parseDouble(args[4*i + 3]);
+            balls[i] = new Ball(xPos, yPos, xVel, yVel, timeSlice);
           }
         } else {
           System.out.println( "Invalid amount of values inputted.\n" );
@@ -85,26 +95,86 @@ public class SoccerSim {
     }
 
 
-  public static void initialStat() {
+  public void initialStat() {
     System.out.println("\n\n\n\nHello! Welcome to the Soccer Simulation Program.\n");
-    System.out.println("Initial Conditions: \n\n" + "Time Slice: " + timeSlice + "\n");
-    for( int i = 1; i < balls.length; i++ ) {
-      System.out.println("Ball " + i + " status:  " + balls[0].getStatus()+"\n");
+    System.out.println("Initial Conditions: \n\n" + "Time Slice: " + timeSlice + "\nThe field size is 1000 X 1000 feet");
+    System.out.println("The pole is at x = 321.0 ft & y = 543.0 ft");
+    for( int i = 0; i < numberBalls; i++ ) {
+      System.out.println("Ball " + (i + 1) + " status:  " + balls[i].getStatus());
+    }
+    System.out.print("\n");
+  }
+
+  public void currentStat() {
+    System.out.println("Time: " + clock.toString());
+    for( int i = 0; i < numberBalls; i++ ) {
+      System.out.println("Ball " + (i + 1) + " status:  " + balls[i].getStatus());
     }
   }
 
-  public static void currentStat() {
-    for( int i = 1; i < balls.length; i++ ) {
-      System.out.println("Ball " + i + " status:  " + balls[0].getStatus()+"\n");
+  public boolean isCollision() {
+    for( int i = 0; i < balls.length; i++ ) {
+      double[] position = balls[i].getPosition();
+      double x = position[0];
+      double y = position[1];
+      for( int j = i+1; j < balls.length; j++ ) {
+        double[] positionTest = balls[j].getPosition();
+        double xTest = positionTest[0];
+        double yTest = positionTest[1];
+        if( Math.sqrt( Math.pow((x - xTest),2) + Math.pow((y - yTest),2) ) < DIAMETER ) {
+          ballHit1 = i;
+          ballHit2 = j;
+          return true;
+        }
+      }
+    }
+
+    for( int i = 0; i < balls.length; i++ ) {
+      double[] position = balls[i].getPosition();
+      double x = position[0];
+      double y = position[1];
+      if( Math.abs(Math.abs(x) - 321.0) < DIAMETER && Math.abs(Math.abs(y) - 543.0) < DIAMETER ) {
+        ballHitPole = i;
+        return true;
+      }
+    }
+    return false;
+  }
+
+  public boolean isOutofBounds() {
+    for( int i = 0; i < balls.length; i++ ) {
+      double[] position = balls[i].getPosition();
+      double x = position[0];
+      double y = position[1];
+      if( Math.abs(x) > fieldBorder || Math.abs(y) > fieldBorder ) {
+        ballOutside = i;
+        return true;
+      }
+    }
+    return false;
+  }
+
+  public boolean allAtRest() {
+    int ballsAtRest = 0;
+    for( int i = 0; i < balls.length; i++ ) {
+      double[] velocity = balls[i].getVelocity();
+      double x = velocity[0];
+      double y = velocity[1];
+      // System.out.println( x + " " + y);
+      if( (Math.abs(x) < (1.0/12.0)) && (Math.abs(y) < (1.0/12.0)) ) {
+        // System.out.println(Math.abs(x));
+        // System.out.println(Math.abs(y));
+        ballsAtRest += 1;
+        // System.out.println(ballsAtRest);
+      }
+    }
+    if( ballsAtRest == balls.length ) {
+      return true;
+    } else {
+      return false;
     }
   }
 
-  public static void calcCollision() {
-
-    while (true) {
-      break;
-    }
-  }
 
 
 /**
@@ -116,8 +186,57 @@ public class SoccerSim {
   public static void main( String args[] ) {
     SoccerSim ss = new SoccerSim( args );
     ss.initialStat();
-    ss.calcCollision();
-    // ss.currentStat();
-    System.exit( 0 );
+    if( ss.isCollision() ) {
+      ss.currentStat();
+      if (ss.ballHitPole != -1) {
+        System.out.println("Collision detected between ball " + (ss.ballHitPole + 1) + " and the pole!");
+        System.exit( 4 );
+      } else {
+        System.out.println("Collision detected between ball " + (ss.ballHit1 + 1) + " and ball " + (ss.ballHit2 + 1) + "!");
+        System.exit( 4 );
+      }
+    }
+    if( ss.isOutofBounds() ) {
+      System.out.println("Ball " + (ss.ballOutside + 1) + " is outside the field!");
+      System.exit( 4 );
+    }
+
+    if( ss.allAtRest() ) {
+      System.out.println("All balls are at rest!");
+      System.exit( 4 );
+    }
+
+    while ( true ) {
+      ss.clock.tick();
+      for( int i = 0; i < ss.balls.length; i++ ) {
+        ss.balls[i].updatePosition();
+        ss.balls[i].updateVelocity();
+      }
+      ss.currentStat();
+      // double[] ref = ss.balls[0].getVelocity();
+      // double vel = ref[0];
+      // double vel2 = ref[1];
+      // System.out.println(ref[0] + " " + ref[1]);
+      System.out.println("");
+      if( ss.isCollision() ) {
+        // ss.currentStat();
+        if (ss.ballHitPole != -1) {
+          System.out.println("Collision detected between ball " + (ss.ballHitPole + 1) + " and the pole!");
+          System.exit( 4 );
+        } else {
+          System.out.println("Collision detected between ball " + (ss.ballHit1 + 1) + " and ball " + (ss.ballHit2 + 1) + "!");
+          System.exit( 4 );
+        }
+      }
+      if( ss.isOutofBounds() ) {
+        System.out.println("No Collison! Ball " + (ss.ballOutside + 1) + " is outside the field!");
+        System.exit( 4 );
+      }
+      if( ss.allAtRest() ) {
+        System.out.println("All balls are at rest!");
+        System.exit( 4 );
+      }
+
+    }
   }
 }
