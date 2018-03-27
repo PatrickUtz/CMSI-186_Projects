@@ -17,13 +17,15 @@
  *  @version 1.0.1  2018-03-13  Patrick Utz   Added methods
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
+import java.text.DecimalFormat;
+
 public class Ball {
   /**
    *  Class field definitions go here
    */
   // private static final double DEFAULT_TIME_SLICE_IN_SECONDS = 1.0;
 
-  private static double[] balls = new double[5];
+  private double[] balls = new double[5];
 
   /***************************
    *  The Constructor
@@ -37,19 +39,39 @@ public class Ball {
   }
 
   public void updateVelocity() {
-    balls[2] = balls[2] * (Math.pow(0.99,balls[4]));
-    balls[3] = balls[3] * (Math.pow(0.99,balls[4]));
+    balls[2] = balls[2]-(.01*balls[2])*balls[4];
+    balls[3] = balls[3]-(.01*balls[3])*balls[4];
+    // balls[2] = balls[2] * (Math.pow(0.99,balls[4]));
+    // balls[3] = balls[3] * (Math.pow(0.99,balls[4]));
   }
 
   public void updatePosition() {
-    balls[0] += balls[2]*balls[4];
-    balls[1] += balls[3]*balls[4];
+    balls[0] += balls[4]*balls[2];
+    balls[1] += balls[4]*balls[3];
+    // balls[0] += (Math.pow(0.99,balls[4]) + balls[2]);
+    // balls[1] += (Math.pow(0.99,balls[4]) + balls[3]);
+  }
+
+  public double[] getPosition() {
+    double positionX = balls[0];
+    double positionY = balls[1];
+    double[] currentPosition = {positionX, positionY};
+    return currentPosition;
+  }
+
+  public double[] getVelocity() {
+    double velocityX = balls[2];
+    double velocityY = balls[3];
+    double[] currentVelocity = {velocityX, velocityY};
+    return currentVelocity;
   }
 
   public String getStatus() {
     StringBuilder status = new StringBuilder();
-    status.append("Position = <" + balls[0] + ", " + balls[1] + ">");
-    status.append("\t  Velocity = <" + balls[2] + ", " + balls[3] + ">");
+    String patternDecimal = "#.##";
+    DecimalFormat decimalFormatOutput = new DecimalFormat(patternDecimal);
+    status.append("Position = <" + decimalFormatOutput.format(balls[0]) + ", " + decimalFormatOutput.format(balls[1]) + "> ft");
+    status.append("\t  Velocity = <" + decimalFormatOutput.format(balls[2]) + ", " + decimalFormatOutput.format(balls[3]) + "> ft/s");
     // status.append("\tTime Slice: <" + balls[4] + ">");
     return status.toString();
   }
