@@ -25,11 +25,11 @@ public class SoccerClock {
    */
   private static final double DEFAULT_TIME_SLICE_IN_SECONDS = 60.0;
 
-  private static double totalSec = 0;
-  private static double timeSlice;
-  private static double hour;
-  private static double minute;
-  private static double second;
+  private double totalSec = 0;
+  private double timeSlice;
+  private double hour;
+  private double minute;
+  private double second;
 
   /**
    *  Constructor goes here
@@ -85,6 +85,19 @@ public class SoccerClock {
     return totalSec;
   }
 
+  public String toString() {
+    getHour();
+    getMinute();
+    getInstantSeconds();
+    String patternHour = "00:";
+    String patternMinute = "00:";
+    String patternSeconds = "00.000";
+    DecimalFormat decimalFormatHour = new DecimalFormat(patternHour);
+    DecimalFormat decimalFormatMinute = new DecimalFormat(patternMinute);
+    DecimalFormat decimalFormatSeconds = new DecimalFormat(patternSeconds);
+    String format = decimalFormatHour.format(hour) + decimalFormatMinute.format(minute) + decimalFormatSeconds.format(second);
+    return format;
+  }
   /**
   *  The main program starts here
   *  remember the constraints from the project description
