@@ -1,0 +1,1220 @@
+.
+.
+======================================
+... Testing Ball class ...
+======================================
+.
+.
+.
+.
+======================================
+... Testing SoccerClock class ...
+======================================
+
+CLOCK CLASS TESTER PROGRAM
+--------------------------
+
+  Creating a new clock:
+    New clock created: 00:00:00.000
+    Testing validateAngleArg()....
+      sending '  0 degrees', expecting double value   0.0.
+.
+======================================
+... Testing SoccerSim no args...
+======================================
+Not enough values inputted.
+
+.
+.
+======================================
+... Testing SoccerSim one arg...
+======================================
+Not enough values inputted.
+
+.
+.
+======================================
+... Testing SoccerSim two args...
+======================================
+Not enough values inputted.
+
+.
+.
+======================================
+... Testing SoccerSim three args...
+======================================
+Not enough values inputted.
+
+.
+.
+======================================
+... Testing SoccerSim six args...
+======================================
+Invalid amount of values inputted.
+
+.
+.
+======================================
+... Testing SoccerSim out of bounds...
+======================================
+
+
+
+
+Hello! Welcome to the Soccer Simulation Program.
+
+Initial Conditions:
+
+Time Slice: 1.0
+The field size is 1000 X 1000 feet
+The pole is at x = 321.0 ft & y = 543.0 ft
+Ball 1 status:  Position = <1100, 1100> ft     Velocity = <99, 99> ft/s
+
+Ball 1 is outside the field!
+.
+.
+======================================
+... Testing SoccerSim negative time slice...
+======================================
+Invalid time slice! Please enter a value between 0 and 1800 next time.
+.
+.
+======================================
+... Testing SoccerSim time slice too large...
+======================================
+Invalid time slice! Please enter a value between 0 and 1800 next time.
+.
+.
+======================================
+... Testing SoccerSim time slice value of zero...
+======================================
+
+
+
+
+Hello! Welcome to the Soccer Simulation Program.
+
+Initial Conditions:
+
+Time Slice: 0.0
+The field size is 1000 X 1000 feet
+The pole is at x = 321.0 ft & y = 543.0 ft
+Ball 1 status:  Position = <10, 10> ft   Velocity = <5, 5> ft/s
+
+Time: 00:00:00.000
+Ball 1 status:  Position = <10, 10> ft   Velocity = <5, 5> ft/s
+
+Time: 00:00:00.000
+Ball 1 status:  Position = <10, 10> ft   Velocity = <5, 5> ft/s
+
+Time: 00:00:00.000
+Ball 1 status:  Position = <10, 10> ft   Velocity = <5, 5> ft/s
+
+Time: 00:00:00.000
+Ball 1 status:  Position = <10, 10> ft   Velocity = <5, 5> ft/s
+
+Time: 00:00:00.000
+Ball 1 status:  Position = <10, 10> ft   Velocity = <5, 5> ft/s
+
+Time: 00:00:00.000
+Ball 1 status:  Position = <10, 10> ft   Velocity = <5, 5> ft/s
+
+Time: 00:00:00.000
+Ball 1 status:  Position = <10, 10> ft   Velocity = <5, 5> ft/s
+
+Time: 00:00:00.000
+Ball 1 status:  Position = <10, 10> ft   Velocity = <5, 5> ft/s
+
+Time: 00:00:00.000
+Ball 1 status:  Position = <10, 10> ft   Velocity = <5, 5> ft/s
+
+Time: 00:00:00.000
+Ball 1 status:  Position = <10, 10> ft   Velocity = <5, 5> ft/s
+
+Time: 00:00:00.000
+Ball 1 status:  Position = <10, 10> ft   Velocity = <5, 5> ft/s
+
+Time: 00:00:00.000
+Ball 1 status:  Position = <10, 10> ft   Velocity = <5, 5> ft/s
+
+Time: 00:00:00.000
+Ball 1 status:  Position = <10, 10> ft   Velocity = <5, 5> ft/s
+
+Time: 00:00:00.000
+Ball 1 status:  Position = <10, 10> ft   Velocity = <5, 5> ft/s
+
+Time: 00:00:00.000
+Ball 1 status:  Position = <10, 10> ft   Velocity = <5, 5> ft/s
+
+Time: 00:00:00.000
+Ball 1 status:  Position = <10, 10> ft   Velocity = <5, 5> ft/s
+
+Time: 00:00:00.000
+Ball 1 status:  Position = <10, 10> ft   Velocity = <5, 5> ft/s
+
+Time: 00:00:00.000
+Ball 1 status:  Position = <10, 10> ft   Velocity = <5, 5> ft/s
+
+Time: 00:00:00.000
+Ball 1 status:  Position = <10, 10> ft   Velocity = <5, 5> ft/s
+
+Time: 00:00:00.000
+Ball 1 status:  Position = <10, 10> ft   Velocity = <5, 5> ft/s
+
+Time: 00:00:00.000
+Ball 1 status:  Position = <10, 10> ft   Velocity = <5, 5> ft/s
+
+FAILED TO CHECK FOR ZERO SECOND TIME SLICE ARGUMENT VALUE;
+   THIS CAUSES AN INFINITE LOOP!!
+
+.                                       
+.                                       
+======================================  
+... Testing SoccerSim check for collision...
+======================================  
+
+
+
+
+Hello! Welcome to the Soccer Simulation Program.
+
+Initial Conditions: 
+
+Time Slice: 1.0
+The field size is 1000 X 1000 feet
+The pole is at x = 321.0 ft & y = 543.0 ft
+Ball 1 status:  Position = <10, 10> ft	  Velocity = <1, 1> ft/s
+Ball 2 status:  Position = <20, 20> ft	  Velocity = <-1, -1> ft/s
+
+Time: 00:00:01.000
+Ball 1 status:  Position = <11, 11> ft	  Velocity = <0.99, 0.99> ft/s
+Ball 2 status:  Position = <19, 19> ft	  Velocity = <-0.99, -0.99> ft/s
+
+Time: 00:00:02.000
+Ball 1 status:  Position = <11.99, 11.99> ft	  Velocity = <0.98, 0.98> ft/s
+Ball 2 status:  Position = <18.01, 18.01> ft	  Velocity = <-0.98, -0.98> ft/s
+
+Time: 00:00:03.000
+Ball 1 status:  Position = <12.97, 12.97> ft	  Velocity = <0.97, 0.97> ft/s
+Ball 2 status:  Position = <17.03, 17.03> ft	  Velocity = <-0.97, -0.97> ft/s
+
+Time: 00:00:04.000
+Ball 1 status:  Position = <13.94, 13.94> ft	  Velocity = <0.96, 0.96> ft/s
+Ball 2 status:  Position = <16.06, 16.06> ft	  Velocity = <-0.96, -0.96> ft/s
+
+Time: 00:00:05.000
+Ball 1 status:  Position = <14.9, 14.9> ft	  Velocity = <0.95, 0.95> ft/s
+Ball 2 status:  Position = <15.1, 15.1> ft	  Velocity = <-0.95, -0.95> ft/s
+
+Collision detected between ball 1 and ball 2!
+.                                       
+.                                       
+======================================  
+... Testing SoccerSim valid ball should come to rest...
+======================================  
+
+
+
+
+Hello! Welcome to the Soccer Simulation Program.
+
+Initial Conditions: 
+
+Time Slice: 1.0
+The field size is 1000 X 1000 feet
+The pole is at x = 321.0 ft & y = 543.0 ft
+Ball 1 status:  Position = <10, 10> ft	  Velocity = <1, 1> ft/s
+
+Time: 00:00:01.000
+Ball 1 status:  Position = <11, 11> ft	  Velocity = <0.99, 0.99> ft/s
+
+Time: 00:00:02.000
+Ball 1 status:  Position = <11.99, 11.99> ft	  Velocity = <0.98, 0.98> ft/s
+
+Time: 00:00:03.000
+Ball 1 status:  Position = <12.97, 12.97> ft	  Velocity = <0.97, 0.97> ft/s
+
+Time: 00:00:04.000
+Ball 1 status:  Position = <13.94, 13.94> ft	  Velocity = <0.96, 0.96> ft/s
+
+Time: 00:00:05.000
+Ball 1 status:  Position = <14.9, 14.9> ft	  Velocity = <0.95, 0.95> ft/s
+
+Time: 00:00:06.000
+Ball 1 status:  Position = <15.85, 15.85> ft	  Velocity = <0.94, 0.94> ft/s
+
+Time: 00:00:07.000
+Ball 1 status:  Position = <16.79, 16.79> ft	  Velocity = <0.93, 0.93> ft/s
+
+Time: 00:00:08.000
+Ball 1 status:  Position = <17.73, 17.73> ft	  Velocity = <0.92, 0.92> ft/s
+
+Time: 00:00:09.000
+Ball 1 status:  Position = <18.65, 18.65> ft	  Velocity = <0.91, 0.91> ft/s
+
+Time: 00:00:10.000
+Ball 1 status:  Position = <19.56, 19.56> ft	  Velocity = <0.9, 0.9> ft/s
+
+Time: 00:00:11.000
+Ball 1 status:  Position = <20.47, 20.47> ft	  Velocity = <0.9, 0.9> ft/s
+
+Time: 00:00:12.000
+Ball 1 status:  Position = <21.36, 21.36> ft	  Velocity = <0.89, 0.89> ft/s
+
+Time: 00:00:13.000
+Ball 1 status:  Position = <22.25, 22.25> ft	  Velocity = <0.88, 0.88> ft/s
+
+Time: 00:00:14.000
+Ball 1 status:  Position = <23.13, 23.13> ft	  Velocity = <0.87, 0.87> ft/s
+
+Time: 00:00:15.000
+Ball 1 status:  Position = <23.99, 23.99> ft	  Velocity = <0.86, 0.86> ft/s
+
+Time: 00:00:16.000
+Ball 1 status:  Position = <24.85, 24.85> ft	  Velocity = <0.85, 0.85> ft/s
+
+Time: 00:00:17.000
+Ball 1 status:  Position = <25.71, 25.71> ft	  Velocity = <0.84, 0.84> ft/s
+
+Time: 00:00:18.000
+Ball 1 status:  Position = <26.55, 26.55> ft	  Velocity = <0.83, 0.83> ft/s
+
+Time: 00:00:19.000
+Ball 1 status:  Position = <27.38, 27.38> ft	  Velocity = <0.83, 0.83> ft/s
+
+Time: 00:00:20.000
+Ball 1 status:  Position = <28.21, 28.21> ft	  Velocity = <0.82, 0.82> ft/s
+
+Time: 00:00:21.000
+Ball 1 status:  Position = <29.03, 29.03> ft	  Velocity = <0.81, 0.81> ft/s
+
+Time: 00:00:22.000
+Ball 1 status:  Position = <29.84, 29.84> ft	  Velocity = <0.8, 0.8> ft/s
+
+Time: 00:00:23.000
+Ball 1 status:  Position = <30.64, 30.64> ft	  Velocity = <0.79, 0.79> ft/s
+
+Time: 00:00:24.000
+Ball 1 status:  Position = <31.43, 31.43> ft	  Velocity = <0.79, 0.79> ft/s
+
+Time: 00:00:25.000
+Ball 1 status:  Position = <32.22, 32.22> ft	  Velocity = <0.78, 0.78> ft/s
+
+Time: 00:00:26.000
+Ball 1 status:  Position = <33, 33> ft	  Velocity = <0.77, 0.77> ft/s
+
+Time: 00:00:27.000
+Ball 1 status:  Position = <33.77, 33.77> ft	  Velocity = <0.76, 0.76> ft/s
+
+Time: 00:00:28.000
+Ball 1 status:  Position = <34.53, 34.53> ft	  Velocity = <0.75, 0.75> ft/s
+
+Time: 00:00:29.000
+Ball 1 status:  Position = <35.28, 35.28> ft	  Velocity = <0.75, 0.75> ft/s
+
+Time: 00:00:30.000
+Ball 1 status:  Position = <36.03, 36.03> ft	  Velocity = <0.74, 0.74> ft/s
+
+Time: 00:00:31.000
+Ball 1 status:  Position = <36.77, 36.77> ft	  Velocity = <0.73, 0.73> ft/s
+
+Time: 00:00:32.000
+Ball 1 status:  Position = <37.5, 37.5> ft	  Velocity = <0.72, 0.72> ft/s
+
+Time: 00:00:33.000
+Ball 1 status:  Position = <38.23, 38.23> ft	  Velocity = <0.72, 0.72> ft/s
+
+Time: 00:00:34.000
+Ball 1 status:  Position = <38.94, 38.94> ft	  Velocity = <0.71, 0.71> ft/s
+
+Time: 00:00:35.000
+Ball 1 status:  Position = <39.66, 39.66> ft	  Velocity = <0.7, 0.7> ft/s
+
+Time: 00:00:36.000
+Ball 1 status:  Position = <40.36, 40.36> ft	  Velocity = <0.7, 0.7> ft/s
+
+Time: 00:00:37.000
+Ball 1 status:  Position = <41.06, 41.06> ft	  Velocity = <0.69, 0.69> ft/s
+
+Time: 00:00:38.000
+Ball 1 status:  Position = <41.74, 41.74> ft	  Velocity = <0.68, 0.68> ft/s
+
+Time: 00:00:39.000
+Ball 1 status:  Position = <42.43, 42.43> ft	  Velocity = <0.68, 0.68> ft/s
+
+Time: 00:00:40.000
+Ball 1 status:  Position = <43.1, 43.1> ft	  Velocity = <0.67, 0.67> ft/s
+
+Time: 00:00:41.000
+Ball 1 status:  Position = <43.77, 43.77> ft	  Velocity = <0.66, 0.66> ft/s
+
+Time: 00:00:42.000
+Ball 1 status:  Position = <44.43, 44.43> ft	  Velocity = <0.66, 0.66> ft/s
+
+Time: 00:00:43.000
+Ball 1 status:  Position = <45.09, 45.09> ft	  Velocity = <0.65, 0.65> ft/s
+
+Time: 00:00:44.000
+Ball 1 status:  Position = <45.74, 45.74> ft	  Velocity = <0.64, 0.64> ft/s
+
+Time: 00:00:45.000
+Ball 1 status:  Position = <46.38, 46.38> ft	  Velocity = <0.64, 0.64> ft/s
+
+Time: 00:00:46.000
+Ball 1 status:  Position = <47.02, 47.02> ft	  Velocity = <0.63, 0.63> ft/s
+
+Time: 00:00:47.000
+Ball 1 status:  Position = <47.65, 47.65> ft	  Velocity = <0.62, 0.62> ft/s
+
+Time: 00:00:48.000
+Ball 1 status:  Position = <48.27, 48.27> ft	  Velocity = <0.62, 0.62> ft/s
+
+Time: 00:00:49.000
+Ball 1 status:  Position = <48.89, 48.89> ft	  Velocity = <0.61, 0.61> ft/s
+
+Time: 00:00:50.000
+Ball 1 status:  Position = <49.5, 49.5> ft	  Velocity = <0.61, 0.61> ft/s
+
+Time: 00:00:51.000
+Ball 1 status:  Position = <50.1, 50.1> ft	  Velocity = <0.6, 0.6> ft/s
+
+Time: 00:00:52.000
+Ball 1 status:  Position = <50.7, 50.7> ft	  Velocity = <0.59, 0.59> ft/s
+
+Time: 00:00:53.000
+Ball 1 status:  Position = <51.3, 51.3> ft	  Velocity = <0.59, 0.59> ft/s
+
+Time: 00:00:54.000
+Ball 1 status:  Position = <51.88, 51.88> ft	  Velocity = <0.58, 0.58> ft/s
+
+Time: 00:00:55.000
+Ball 1 status:  Position = <52.46, 52.46> ft	  Velocity = <0.58, 0.58> ft/s
+
+Time: 00:00:56.000
+Ball 1 status:  Position = <53.04, 53.04> ft	  Velocity = <0.57, 0.57> ft/s
+
+Time: 00:00:57.000
+Ball 1 status:  Position = <53.61, 53.61> ft	  Velocity = <0.56, 0.56> ft/s
+
+Time: 00:00:58.000
+Ball 1 status:  Position = <54.17, 54.17> ft	  Velocity = <0.56, 0.56> ft/s
+
+Time: 00:00:59.000
+Ball 1 status:  Position = <54.73, 54.73> ft	  Velocity = <0.55, 0.55> ft/s
+
+Time: 00:01:00.000
+Ball 1 status:  Position = <55.28, 55.28> ft	  Velocity = <0.55, 0.55> ft/s
+
+Time: 00:01:01.000
+Ball 1 status:  Position = <55.83, 55.83> ft	  Velocity = <0.54, 0.54> ft/s
+
+Time: 00:01:02.000
+Ball 1 status:  Position = <56.37, 56.37> ft	  Velocity = <0.54, 0.54> ft/s
+
+Time: 00:01:03.000
+Ball 1 status:  Position = <56.91, 56.91> ft	  Velocity = <0.53, 0.53> ft/s
+
+Time: 00:01:04.000
+Ball 1 status:  Position = <57.44, 57.44> ft	  Velocity = <0.53, 0.53> ft/s
+
+Time: 00:01:05.000
+Ball 1 status:  Position = <57.97, 57.97> ft	  Velocity = <0.52, 0.52> ft/s
+
+Time: 00:01:06.000
+Ball 1 status:  Position = <58.49, 58.49> ft	  Velocity = <0.52, 0.52> ft/s
+
+Time: 00:01:07.000
+Ball 1 status:  Position = <59, 59> ft	  Velocity = <0.51, 0.51> ft/s
+
+Time: 00:01:08.000
+Ball 1 status:  Position = <59.51, 59.51> ft	  Velocity = <0.5, 0.5> ft/s
+
+Time: 00:01:09.000
+Ball 1 status:  Position = <60.02, 60.02> ft	  Velocity = <0.5, 0.5> ft/s
+
+Time: 00:01:10.000
+Ball 1 status:  Position = <60.52, 60.52> ft	  Velocity = <0.49, 0.49> ft/s
+
+Time: 00:01:11.000
+Ball 1 status:  Position = <61.01, 61.01> ft	  Velocity = <0.49, 0.49> ft/s
+
+Time: 00:01:12.000
+Ball 1 status:  Position = <61.5, 61.5> ft	  Velocity = <0.48, 0.48> ft/s
+
+Time: 00:01:13.000
+Ball 1 status:  Position = <61.99, 61.99> ft	  Velocity = <0.48, 0.48> ft/s
+
+Time: 00:01:14.000
+Ball 1 status:  Position = <62.47, 62.47> ft	  Velocity = <0.48, 0.48> ft/s
+
+Time: 00:01:15.000
+Ball 1 status:  Position = <62.94, 62.94> ft	  Velocity = <0.47, 0.47> ft/s
+
+Time: 00:01:16.000
+Ball 1 status:  Position = <63.41, 63.41> ft	  Velocity = <0.47, 0.47> ft/s
+
+Time: 00:01:17.000
+Ball 1 status:  Position = <63.88, 63.88> ft	  Velocity = <0.46, 0.46> ft/s
+
+Time: 00:01:18.000
+Ball 1 status:  Position = <64.34, 64.34> ft	  Velocity = <0.46, 0.46> ft/s
+
+Time: 00:01:19.000
+Ball 1 status:  Position = <64.8, 64.8> ft	  Velocity = <0.45, 0.45> ft/s
+
+Time: 00:01:20.000
+Ball 1 status:  Position = <65.25, 65.25> ft	  Velocity = <0.45, 0.45> ft/s
+
+Time: 00:01:21.000
+Ball 1 status:  Position = <65.7, 65.7> ft	  Velocity = <0.44, 0.44> ft/s
+
+Time: 00:01:22.000
+Ball 1 status:  Position = <66.14, 66.14> ft	  Velocity = <0.44, 0.44> ft/s
+
+Time: 00:01:23.000
+Ball 1 status:  Position = <66.58, 66.58> ft	  Velocity = <0.43, 0.43> ft/s
+
+Time: 00:01:24.000
+Ball 1 status:  Position = <67.01, 67.01> ft	  Velocity = <0.43, 0.43> ft/s
+
+Time: 00:01:25.000
+Ball 1 status:  Position = <67.44, 67.44> ft	  Velocity = <0.43, 0.43> ft/s
+
+Time: 00:01:26.000
+Ball 1 status:  Position = <67.87, 67.87> ft	  Velocity = <0.42, 0.42> ft/s
+
+Time: 00:01:27.000
+Ball 1 status:  Position = <68.29, 68.29> ft	  Velocity = <0.42, 0.42> ft/s
+
+Time: 00:01:28.000
+Ball 1 status:  Position = <68.71, 68.71> ft	  Velocity = <0.41, 0.41> ft/s
+
+Time: 00:01:29.000
+Ball 1 status:  Position = <69.12, 69.12> ft	  Velocity = <0.41, 0.41> ft/s
+
+Time: 00:01:30.000
+Ball 1 status:  Position = <69.53, 69.53> ft	  Velocity = <0.4, 0.4> ft/s
+
+Time: 00:01:31.000
+Ball 1 status:  Position = <69.93, 69.93> ft	  Velocity = <0.4, 0.4> ft/s
+
+Time: 00:01:32.000
+Ball 1 status:  Position = <70.33, 70.33> ft	  Velocity = <0.4, 0.4> ft/s
+
+Time: 00:01:33.000
+Ball 1 status:  Position = <70.73, 70.73> ft	  Velocity = <0.39, 0.39> ft/s
+
+Time: 00:01:34.000
+Ball 1 status:  Position = <71.12, 71.12> ft	  Velocity = <0.39, 0.39> ft/s
+
+Time: 00:01:35.000
+Ball 1 status:  Position = <71.51, 71.51> ft	  Velocity = <0.38, 0.38> ft/s
+
+Time: 00:01:36.000
+Ball 1 status:  Position = <71.9, 71.9> ft	  Velocity = <0.38, 0.38> ft/s
+
+Time: 00:01:37.000
+Ball 1 status:  Position = <72.28, 72.28> ft	  Velocity = <0.38, 0.38> ft/s
+
+Time: 00:01:38.000
+Ball 1 status:  Position = <72.65, 72.65> ft	  Velocity = <0.37, 0.37> ft/s
+
+Time: 00:01:39.000
+Ball 1 status:  Position = <73.03, 73.03> ft	  Velocity = <0.37, 0.37> ft/s
+
+Time: 00:01:40.000
+Ball 1 status:  Position = <73.4, 73.4> ft	  Velocity = <0.37, 0.37> ft/s
+
+Time: 00:01:41.000
+Ball 1 status:  Position = <73.76, 73.76> ft	  Velocity = <0.36, 0.36> ft/s
+
+Time: 00:01:42.000
+Ball 1 status:  Position = <74.13, 74.13> ft	  Velocity = <0.36, 0.36> ft/s
+
+Time: 00:01:43.000
+Ball 1 status:  Position = <74.48, 74.48> ft	  Velocity = <0.36, 0.36> ft/s
+
+Time: 00:01:44.000
+Ball 1 status:  Position = <74.84, 74.84> ft	  Velocity = <0.35, 0.35> ft/s
+
+Time: 00:01:45.000
+Ball 1 status:  Position = <75.19, 75.19> ft	  Velocity = <0.35, 0.35> ft/s
+
+Time: 00:01:46.000
+Ball 1 status:  Position = <75.54, 75.54> ft	  Velocity = <0.34, 0.34> ft/s
+
+Time: 00:01:47.000
+Ball 1 status:  Position = <75.88, 75.88> ft	  Velocity = <0.34, 0.34> ft/s
+
+Time: 00:01:48.000
+Ball 1 status:  Position = <76.22, 76.22> ft	  Velocity = <0.34, 0.34> ft/s
+
+Time: 00:01:49.000
+Ball 1 status:  Position = <76.56, 76.56> ft	  Velocity = <0.33, 0.33> ft/s
+
+Time: 00:01:50.000
+Ball 1 status:  Position = <76.9, 76.9> ft	  Velocity = <0.33, 0.33> ft/s
+
+Time: 00:01:51.000
+Ball 1 status:  Position = <77.23, 77.23> ft	  Velocity = <0.33, 0.33> ft/s
+
+Time: 00:01:52.000
+Ball 1 status:  Position = <77.56, 77.56> ft	  Velocity = <0.32, 0.32> ft/s
+
+Time: 00:01:53.000
+Ball 1 status:  Position = <77.88, 77.88> ft	  Velocity = <0.32, 0.32> ft/s
+
+Time: 00:01:54.000
+Ball 1 status:  Position = <78.2, 78.2> ft	  Velocity = <0.32, 0.32> ft/s
+
+Time: 00:01:55.000
+Ball 1 status:  Position = <78.52, 78.52> ft	  Velocity = <0.31, 0.31> ft/s
+
+Time: 00:01:56.000
+Ball 1 status:  Position = <78.83, 78.83> ft	  Velocity = <0.31, 0.31> ft/s
+
+Time: 00:01:57.000
+Ball 1 status:  Position = <79.15, 79.15> ft	  Velocity = <0.31, 0.31> ft/s
+
+Time: 00:01:58.000
+Ball 1 status:  Position = <79.45, 79.45> ft	  Velocity = <0.31, 0.31> ft/s
+
+Time: 00:01:59.000
+Ball 1 status:  Position = <79.76, 79.76> ft	  Velocity = <0.3, 0.3> ft/s
+
+Time: 00:02:00.000
+Ball 1 status:  Position = <80.06, 80.06> ft	  Velocity = <0.3, 0.3> ft/s
+
+Time: 00:02:01.000
+Ball 1 status:  Position = <80.36, 80.36> ft	  Velocity = <0.3, 0.3> ft/s
+
+Time: 00:02:02.000
+Ball 1 status:  Position = <80.66, 80.66> ft	  Velocity = <0.29, 0.29> ft/s
+
+Time: 00:02:03.000
+Ball 1 status:  Position = <80.95, 80.95> ft	  Velocity = <0.29, 0.29> ft/s
+
+Time: 00:02:04.000
+Ball 1 status:  Position = <81.24, 81.24> ft	  Velocity = <0.29, 0.29> ft/s
+
+Time: 00:02:05.000
+Ball 1 status:  Position = <81.53, 81.53> ft	  Velocity = <0.28, 0.28> ft/s
+
+Time: 00:02:06.000
+Ball 1 status:  Position = <81.81, 81.81> ft	  Velocity = <0.28, 0.28> ft/s
+
+Time: 00:02:07.000
+Ball 1 status:  Position = <82.1, 82.1> ft	  Velocity = <0.28, 0.28> ft/s
+
+Time: 00:02:08.000
+Ball 1 status:  Position = <82.37, 82.37> ft	  Velocity = <0.28, 0.28> ft/s
+
+Time: 00:02:09.000
+Ball 1 status:  Position = <82.65, 82.65> ft	  Velocity = <0.27, 0.27> ft/s
+
+Time: 00:02:10.000
+Ball 1 status:  Position = <82.92, 82.92> ft	  Velocity = <0.27, 0.27> ft/s
+
+Time: 00:02:11.000
+Ball 1 status:  Position = <83.2, 83.2> ft	  Velocity = <0.27, 0.27> ft/s
+
+Time: 00:02:12.000
+Ball 1 status:  Position = <83.46, 83.46> ft	  Velocity = <0.27, 0.27> ft/s
+
+Time: 00:02:13.000
+Ball 1 status:  Position = <83.73, 83.73> ft	  Velocity = <0.26, 0.26> ft/s
+
+Time: 00:02:14.000
+Ball 1 status:  Position = <83.99, 83.99> ft	  Velocity = <0.26, 0.26> ft/s
+
+Time: 00:02:15.000
+Ball 1 status:  Position = <84.25, 84.25> ft	  Velocity = <0.26, 0.26> ft/s
+
+Time: 00:02:16.000
+Ball 1 status:  Position = <84.51, 84.51> ft	  Velocity = <0.25, 0.25> ft/s
+
+Time: 00:02:17.000
+Ball 1 status:  Position = <84.76, 84.76> ft	  Velocity = <0.25, 0.25> ft/s
+
+Time: 00:02:18.000
+Ball 1 status:  Position = <85.02, 85.02> ft	  Velocity = <0.25, 0.25> ft/s
+
+Time: 00:02:19.000
+Ball 1 status:  Position = <85.27, 85.27> ft	  Velocity = <0.25, 0.25> ft/s
+
+Time: 00:02:20.000
+Ball 1 status:  Position = <85.51, 85.51> ft	  Velocity = <0.24, 0.24> ft/s
+
+Time: 00:02:21.000
+Ball 1 status:  Position = <85.76, 85.76> ft	  Velocity = <0.24, 0.24> ft/s
+
+Time: 00:02:22.000
+Ball 1 status:  Position = <86, 86> ft	  Velocity = <0.24, 0.24> ft/s
+
+Time: 00:02:23.000
+Ball 1 status:  Position = <86.24, 86.24> ft	  Velocity = <0.24, 0.24> ft/s
+
+Time: 00:02:24.000
+Ball 1 status:  Position = <86.48, 86.48> ft	  Velocity = <0.24, 0.24> ft/s
+
+Time: 00:02:25.000
+Ball 1 status:  Position = <86.71, 86.71> ft	  Velocity = <0.23, 0.23> ft/s
+
+Time: 00:02:26.000
+Ball 1 status:  Position = <86.95, 86.95> ft	  Velocity = <0.23, 0.23> ft/s
+
+Time: 00:02:27.000
+Ball 1 status:  Position = <87.18, 87.18> ft	  Velocity = <0.23, 0.23> ft/s
+
+Time: 00:02:28.000
+Ball 1 status:  Position = <87.41, 87.41> ft	  Velocity = <0.23, 0.23> ft/s
+
+Time: 00:02:29.000
+Ball 1 status:  Position = <87.63, 87.63> ft	  Velocity = <0.22, 0.22> ft/s
+
+Time: 00:02:30.000
+Ball 1 status:  Position = <87.85, 87.85> ft	  Velocity = <0.22, 0.22> ft/s
+
+Time: 00:02:31.000
+Ball 1 status:  Position = <88.08, 88.08> ft	  Velocity = <0.22, 0.22> ft/s
+
+Time: 00:02:32.000
+Ball 1 status:  Position = <88.3, 88.3> ft	  Velocity = <0.22, 0.22> ft/s
+
+Time: 00:02:33.000
+Ball 1 status:  Position = <88.51, 88.51> ft	  Velocity = <0.21, 0.21> ft/s
+
+Time: 00:02:34.000
+Ball 1 status:  Position = <88.73, 88.73> ft	  Velocity = <0.21, 0.21> ft/s
+
+Time: 00:02:35.000
+Ball 1 status:  Position = <88.94, 88.94> ft	  Velocity = <0.21, 0.21> ft/s
+
+Time: 00:02:36.000
+Ball 1 status:  Position = <89.15, 89.15> ft	  Velocity = <0.21, 0.21> ft/s
+
+Time: 00:02:37.000
+Ball 1 status:  Position = <89.36, 89.36> ft	  Velocity = <0.21, 0.21> ft/s
+
+Time: 00:02:38.000
+Ball 1 status:  Position = <89.57, 89.57> ft	  Velocity = <0.2, 0.2> ft/s
+
+Time: 00:02:39.000
+Ball 1 status:  Position = <89.77, 89.77> ft	  Velocity = <0.2, 0.2> ft/s
+
+Time: 00:02:40.000
+Ball 1 status:  Position = <89.97, 89.97> ft	  Velocity = <0.2, 0.2> ft/s
+
+Time: 00:02:41.000
+Ball 1 status:  Position = <90.17, 90.17> ft	  Velocity = <0.2, 0.2> ft/s
+
+Time: 00:02:42.000
+Ball 1 status:  Position = <90.37, 90.37> ft	  Velocity = <0.2, 0.2> ft/s
+
+Time: 00:02:43.000
+Ball 1 status:  Position = <90.57, 90.57> ft	  Velocity = <0.19, 0.19> ft/s
+
+Time: 00:02:44.000
+Ball 1 status:  Position = <90.76, 90.76> ft	  Velocity = <0.19, 0.19> ft/s
+
+Time: 00:02:45.000
+Ball 1 status:  Position = <90.95, 90.95> ft	  Velocity = <0.19, 0.19> ft/s
+
+Time: 00:02:46.000
+Ball 1 status:  Position = <91.14, 91.14> ft	  Velocity = <0.19, 0.19> ft/s
+
+Time: 00:02:47.000
+Ball 1 status:  Position = <91.33, 91.33> ft	  Velocity = <0.19, 0.19> ft/s
+
+Time: 00:02:48.000
+Ball 1 status:  Position = <91.52, 91.52> ft	  Velocity = <0.18, 0.18> ft/s
+
+Time: 00:02:49.000
+Ball 1 status:  Position = <91.7, 91.7> ft	  Velocity = <0.18, 0.18> ft/s
+
+Time: 00:02:50.000
+Ball 1 status:  Position = <91.89, 91.89> ft	  Velocity = <0.18, 0.18> ft/s
+
+Time: 00:02:51.000
+Ball 1 status:  Position = <92.07, 92.07> ft	  Velocity = <0.18, 0.18> ft/s
+
+Time: 00:02:52.000
+Ball 1 status:  Position = <92.25, 92.25> ft	  Velocity = <0.18, 0.18> ft/s
+
+Time: 00:02:53.000
+Ball 1 status:  Position = <92.43, 92.43> ft	  Velocity = <0.18, 0.18> ft/s
+
+Time: 00:02:54.000
+Ball 1 status:  Position = <92.6, 92.6> ft	  Velocity = <0.17, 0.17> ft/s
+
+Time: 00:02:55.000
+Ball 1 status:  Position = <92.78, 92.78> ft	  Velocity = <0.17, 0.17> ft/s
+
+Time: 00:02:56.000
+Ball 1 status:  Position = <92.95, 92.95> ft	  Velocity = <0.17, 0.17> ft/s
+
+Time: 00:02:57.000
+Ball 1 status:  Position = <93.12, 93.12> ft	  Velocity = <0.17, 0.17> ft/s
+
+Time: 00:02:58.000
+Ball 1 status:  Position = <93.29, 93.29> ft	  Velocity = <0.17, 0.17> ft/s
+
+Time: 00:02:59.000
+Ball 1 status:  Position = <93.45, 93.45> ft	  Velocity = <0.17, 0.17> ft/s
+
+Time: 00:03:00.000
+Ball 1 status:  Position = <93.62, 93.62> ft	  Velocity = <0.16, 0.16> ft/s
+
+Time: 00:03:01.000
+Ball 1 status:  Position = <93.78, 93.78> ft	  Velocity = <0.16, 0.16> ft/s
+
+Time: 00:03:02.000
+Ball 1 status:  Position = <93.95, 93.95> ft	  Velocity = <0.16, 0.16> ft/s
+
+Time: 00:03:03.000
+Ball 1 status:  Position = <94.11, 94.11> ft	  Velocity = <0.16, 0.16> ft/s
+
+Time: 00:03:04.000
+Ball 1 status:  Position = <94.26, 94.26> ft	  Velocity = <0.16, 0.16> ft/s
+
+Time: 00:03:05.000
+Ball 1 status:  Position = <94.42, 94.42> ft	  Velocity = <0.16, 0.16> ft/s
+
+Time: 00:03:06.000
+Ball 1 status:  Position = <94.58, 94.58> ft	  Velocity = <0.15, 0.15> ft/s
+
+Time: 00:03:07.000
+Ball 1 status:  Position = <94.73, 94.73> ft	  Velocity = <0.15, 0.15> ft/s
+
+Time: 00:03:08.000
+Ball 1 status:  Position = <94.88, 94.88> ft	  Velocity = <0.15, 0.15> ft/s
+
+Time: 00:03:09.000
+Ball 1 status:  Position = <95.04, 95.04> ft	  Velocity = <0.15, 0.15> ft/s
+
+Time: 00:03:10.000
+Ball 1 status:  Position = <95.19, 95.19> ft	  Velocity = <0.15, 0.15> ft/s
+
+Time: 00:03:11.000
+Ball 1 status:  Position = <95.33, 95.33> ft	  Velocity = <0.15, 0.15> ft/s
+
+Time: 00:03:12.000
+Ball 1 status:  Position = <95.48, 95.48> ft	  Velocity = <0.15, 0.15> ft/s
+
+Time: 00:03:13.000
+Ball 1 status:  Position = <95.63, 95.63> ft	  Velocity = <0.14, 0.14> ft/s
+
+Time: 00:03:14.000
+Ball 1 status:  Position = <95.77, 95.77> ft	  Velocity = <0.14, 0.14> ft/s
+
+Time: 00:03:15.000
+Ball 1 status:  Position = <95.91, 95.91> ft	  Velocity = <0.14, 0.14> ft/s
+
+Time: 00:03:16.000
+Ball 1 status:  Position = <96.05, 96.05> ft	  Velocity = <0.14, 0.14> ft/s
+
+Time: 00:03:17.000
+Ball 1 status:  Position = <96.19, 96.19> ft	  Velocity = <0.14, 0.14> ft/s
+
+Time: 00:03:18.000
+Ball 1 status:  Position = <96.33, 96.33> ft	  Velocity = <0.14, 0.14> ft/s
+
+Time: 00:03:19.000
+Ball 1 status:  Position = <96.47, 96.47> ft	  Velocity = <0.14, 0.14> ft/s
+
+Time: 00:03:20.000
+Ball 1 status:  Position = <96.6, 96.6> ft	  Velocity = <0.13, 0.13> ft/s
+
+Time: 00:03:21.000
+Ball 1 status:  Position = <96.74, 96.74> ft	  Velocity = <0.13, 0.13> ft/s
+
+Time: 00:03:22.000
+Ball 1 status:  Position = <96.87, 96.87> ft	  Velocity = <0.13, 0.13> ft/s
+
+Time: 00:03:23.000
+Ball 1 status:  Position = <97, 97> ft	  Velocity = <0.13, 0.13> ft/s
+
+Time: 00:03:24.000
+Ball 1 status:  Position = <97.13, 97.13> ft	  Velocity = <0.13, 0.13> ft/s
+
+Time: 00:03:25.000
+Ball 1 status:  Position = <97.26, 97.26> ft	  Velocity = <0.13, 0.13> ft/s
+
+Time: 00:03:26.000
+Ball 1 status:  Position = <97.39, 97.39> ft	  Velocity = <0.13, 0.13> ft/s
+
+Time: 00:03:27.000
+Ball 1 status:  Position = <97.51, 97.51> ft	  Velocity = <0.12, 0.12> ft/s
+
+Time: 00:03:28.000
+Ball 1 status:  Position = <97.64, 97.64> ft	  Velocity = <0.12, 0.12> ft/s
+
+Time: 00:03:29.000
+Ball 1 status:  Position = <97.76, 97.76> ft	  Velocity = <0.12, 0.12> ft/s
+
+Time: 00:03:30.000
+Ball 1 status:  Position = <97.88, 97.88> ft	  Velocity = <0.12, 0.12> ft/s
+
+Time: 00:03:31.000
+Ball 1 status:  Position = <98, 98> ft	  Velocity = <0.12, 0.12> ft/s
+
+Time: 00:03:32.000
+Ball 1 status:  Position = <98.12, 98.12> ft	  Velocity = <0.12, 0.12> ft/s
+
+Time: 00:03:33.000
+Ball 1 status:  Position = <98.24, 98.24> ft	  Velocity = <0.12, 0.12> ft/s
+
+Time: 00:03:34.000
+Ball 1 status:  Position = <98.36, 98.36> ft	  Velocity = <0.12, 0.12> ft/s
+
+Time: 00:03:35.000
+Ball 1 status:  Position = <98.48, 98.48> ft	  Velocity = <0.12, 0.12> ft/s
+
+Time: 00:03:36.000
+Ball 1 status:  Position = <98.59, 98.59> ft	  Velocity = <0.11, 0.11> ft/s
+
+Time: 00:03:37.000
+Ball 1 status:  Position = <98.71, 98.71> ft	  Velocity = <0.11, 0.11> ft/s
+
+Time: 00:03:38.000
+Ball 1 status:  Position = <98.82, 98.82> ft	  Velocity = <0.11, 0.11> ft/s
+
+Time: 00:03:39.000
+Ball 1 status:  Position = <98.93, 98.93> ft	  Velocity = <0.11, 0.11> ft/s
+
+Time: 00:03:40.000
+Ball 1 status:  Position = <99.04, 99.04> ft	  Velocity = <0.11, 0.11> ft/s
+
+Time: 00:03:41.000
+Ball 1 status:  Position = <99.15, 99.15> ft	  Velocity = <0.11, 0.11> ft/s
+
+Time: 00:03:42.000
+Ball 1 status:  Position = <99.26, 99.26> ft	  Velocity = <0.11, 0.11> ft/s
+
+Time: 00:03:43.000
+Ball 1 status:  Position = <99.37, 99.37> ft	  Velocity = <0.11, 0.11> ft/s
+
+Time: 00:03:44.000
+Ball 1 status:  Position = <99.47, 99.47> ft	  Velocity = <0.11, 0.11> ft/s
+
+Time: 00:03:45.000
+Ball 1 status:  Position = <99.58, 99.58> ft	  Velocity = <0.1, 0.1> ft/s
+
+Time: 00:03:46.000
+Ball 1 status:  Position = <99.68, 99.68> ft	  Velocity = <0.1, 0.1> ft/s
+
+Time: 00:03:47.000
+Ball 1 status:  Position = <99.79, 99.79> ft	  Velocity = <0.1, 0.1> ft/s
+
+Time: 00:03:48.000
+Ball 1 status:  Position = <99.89, 99.89> ft	  Velocity = <0.1, 0.1> ft/s
+
+Time: 00:03:49.000
+Ball 1 status:  Position = <99.99, 99.99> ft	  Velocity = <0.1, 0.1> ft/s
+
+Time: 00:03:50.000
+Ball 1 status:  Position = <100.09, 100.09> ft	  Velocity = <0.1, 0.1> ft/s
+
+Time: 00:03:51.000
+Ball 1 status:  Position = <100.19, 100.19> ft	  Velocity = <0.1, 0.1> ft/s
+
+Time: 00:03:52.000
+Ball 1 status:  Position = <100.29, 100.29> ft	  Velocity = <0.1, 0.1> ft/s
+
+Time: 00:03:53.000
+Ball 1 status:  Position = <100.38, 100.38> ft	  Velocity = <0.1, 0.1> ft/s
+
+Time: 00:03:54.000
+Ball 1 status:  Position = <100.48, 100.48> ft	  Velocity = <0.1, 0.1> ft/s
+
+Time: 00:03:55.000
+Ball 1 status:  Position = <100.58, 100.58> ft	  Velocity = <0.09, 0.09> ft/s
+
+Time: 00:03:56.000
+Ball 1 status:  Position = <100.67, 100.67> ft	  Velocity = <0.09, 0.09> ft/s
+
+Time: 00:03:57.000
+Ball 1 status:  Position = <100.76, 100.76> ft	  Velocity = <0.09, 0.09> ft/s
+
+Time: 00:03:58.000
+Ball 1 status:  Position = <100.86, 100.86> ft	  Velocity = <0.09, 0.09> ft/s
+
+Time: 00:03:59.000
+Ball 1 status:  Position = <100.95, 100.95> ft	  Velocity = <0.09, 0.09> ft/s
+
+Time: 00:04:00.000
+Ball 1 status:  Position = <101.04, 101.04> ft	  Velocity = <0.09, 0.09> ft/s
+
+Time: 00:04:01.000
+Ball 1 status:  Position = <101.13, 101.13> ft	  Velocity = <0.09, 0.09> ft/s
+
+Time: 00:04:02.000
+Ball 1 status:  Position = <101.22, 101.22> ft	  Velocity = <0.09, 0.09> ft/s
+
+Time: 00:04:03.000
+Ball 1 status:  Position = <101.3, 101.3> ft	  Velocity = <0.09, 0.09> ft/s
+
+Time: 00:04:04.000
+Ball 1 status:  Position = <101.39, 101.39> ft	  Velocity = <0.09, 0.09> ft/s
+
+Time: 00:04:05.000
+Ball 1 status:  Position = <101.48, 101.48> ft	  Velocity = <0.09, 0.09> ft/s
+
+Time: 00:04:06.000
+Ball 1 status:  Position = <101.56, 101.56> ft	  Velocity = <0.08, 0.08> ft/s
+
+Time: 00:04:07.000
+Ball 1 status:  Position = <101.65, 101.65> ft	  Velocity = <0.08, 0.08> ft/s
+
+Time: 00:04:08.000
+Ball 1 status:  Position = <101.73, 101.73> ft	  Velocity = <0.08, 0.08> ft/s
+
+All balls are at rest!
+.                                       
+.                                       
+======================================  
+... Testing SoccerSim valid ball should go out of bounds...
+======================================  
+
+
+
+
+Hello! Welcome to the Soccer Simulation Program.
+
+Initial Conditions: 
+
+Time Slice: 1.0
+The field size is 1000 X 1000 feet
+The pole is at x = 321.0 ft & y = 543.0 ft
+Ball 1 status:  Position = <10, 10> ft	  Velocity = <1000, 1000> ft/s
+
+Time: 00:00:01.000
+Ball 1 status:  Position = <1010, 1010> ft	  Velocity = <990, 990> ft/s
+
+No Collison! Ball 1 is outside the field!
+.                                       
+.                                       
+======================================  
+... Testing SoccerSim valid ball set six balls subsecond time slice...
+======================================  
+
+
+
+
+Hello! Welcome to the Soccer Simulation Program.
+
+Initial Conditions: 
+
+Time Slice: 0.1
+The field size is 1000 X 1000 feet
+The pole is at x = 321.0 ft & y = 543.0 ft
+Ball 1 status:  Position = <200, 200> ft	  Velocity = <10, 10> ft/s
+Ball 2 status:  Position = <100, 100> ft	  Velocity = <-100, -100> ft/s
+Ball 3 status:  Position = <150, 150> ft	  Velocity = <200, 200> ft/s
+Ball 4 status:  Position = <175, 175> ft	  Velocity = <-110, -110> ft/s
+Ball 5 status:  Position = <20, 20> ft	  Velocity = <1, 1> ft/s
+Ball 6 status:  Position = <50, 50> ft	  Velocity = <-5, -5> ft/s
+
+Time: 00:00:00.100
+Ball 1 status:  Position = <201, 201> ft	  Velocity = <9.99, 9.99> ft/s
+Ball 2 status:  Position = <90, 90> ft	  Velocity = <-99.9, -99.9> ft/s
+Ball 3 status:  Position = <170, 170> ft	  Velocity = <199.8, 199.8> ft/s
+Ball 4 status:  Position = <164, 164> ft	  Velocity = <-109.89, -109.89> ft/s
+Ball 5 status:  Position = <20.1, 20.1> ft	  Velocity = <1, 1> ft/s
+Ball 6 status:  Position = <49.5, 49.5> ft	  Velocity = <-5, -5> ft/s
+
+Time: 00:00:00.200
+Ball 1 status:  Position = <202, 202> ft	  Velocity = <9.98, 9.98> ft/s
+Ball 2 status:  Position = <80.01, 80.01> ft	  Velocity = <-99.8, -99.8> ft/s
+Ball 3 status:  Position = <189.98, 189.98> ft	  Velocity = <199.6, 199.6> ft/s
+Ball 4 status:  Position = <153.01, 153.01> ft	  Velocity = <-109.78, -109.78> ft/s
+Ball 5 status:  Position = <20.2, 20.2> ft	  Velocity = <1, 1> ft/s
+Ball 6 status:  Position = <49, 49> ft	  Velocity = <-4.99, -4.99> ft/s
+
+Time: 00:00:00.300
+Ball 1 status:  Position = <203, 203> ft	  Velocity = <9.97, 9.97> ft/s
+Ball 2 status:  Position = <70.03, 70.03> ft	  Velocity = <-99.7, -99.7> ft/s
+Ball 3 status:  Position = <209.94, 209.94> ft	  Velocity = <199.4, 199.4> ft/s
+Ball 4 status:  Position = <142.03, 142.03> ft	  Velocity = <-109.67, -109.67> ft/s
+Ball 5 status:  Position = <20.3, 20.3> ft	  Velocity = <1, 1> ft/s
+Ball 6 status:  Position = <48.5, 48.5> ft	  Velocity = <-4.99, -4.99> ft/s
+
+Time: 00:00:00.400
+Ball 1 status:  Position = <203.99, 203.99> ft	  Velocity = <9.96, 9.96> ft/s
+Ball 2 status:  Position = <60.06, 60.06> ft	  Velocity = <-99.6, -99.6> ft/s
+Ball 3 status:  Position = <229.88, 229.88> ft	  Velocity = <199.2, 199.2> ft/s
+Ball 4 status:  Position = <131.07, 131.07> ft	  Velocity = <-109.56, -109.56> ft/s
+Ball 5 status:  Position = <20.4, 20.4> ft	  Velocity = <1, 1> ft/s
+Ball 6 status:  Position = <48, 48> ft	  Velocity = <-4.98, -4.98> ft/s
+
+Time: 00:00:00.500
+Ball 1 status:  Position = <204.99, 204.99> ft	  Velocity = <9.95, 9.95> ft/s
+Ball 2 status:  Position = <50.1, 50.1> ft	  Velocity = <-99.5, -99.5> ft/s
+Ball 3 status:  Position = <249.8, 249.8> ft	  Velocity = <199, 199> ft/s
+Ball 4 status:  Position = <120.11, 120.11> ft	  Velocity = <-109.45, -109.45> ft/s
+Ball 5 status:  Position = <20.5, 20.5> ft	  Velocity = <1, 1> ft/s
+Ball 6 status:  Position = <47.5, 47.5> ft	  Velocity = <-4.98, -4.98> ft/s
+
+Time: 00:00:00.600
+Ball 1 status:  Position = <205.99, 205.99> ft	  Velocity = <9.94, 9.94> ft/s
+Ball 2 status:  Position = <40.15, 40.15> ft	  Velocity = <-99.4, -99.4> ft/s
+Ball 3 status:  Position = <269.7, 269.7> ft	  Velocity = <198.8, 198.8> ft/s
+Ball 4 status:  Position = <109.16, 109.16> ft	  Velocity = <-109.34, -109.34> ft/s
+Ball 5 status:  Position = <20.6, 20.6> ft	  Velocity = <0.99, 0.99> ft/s
+Ball 6 status:  Position = <47.01, 47.01> ft	  Velocity = <-4.97, -4.97> ft/s
+
+Time: 00:00:00.700
+Ball 1 status:  Position = <206.98, 206.98> ft	  Velocity = <9.93, 9.93> ft/s
+Ball 2 status:  Position = <30.21, 30.21> ft	  Velocity = <-99.3, -99.3> ft/s
+Ball 3 status:  Position = <289.58, 289.58> ft	  Velocity = <198.6, 198.6> ft/s
+Ball 4 status:  Position = <98.23, 98.23> ft	  Velocity = <-109.23, -109.23> ft/s
+Ball 5 status:  Position = <20.7, 20.7> ft	  Velocity = <0.99, 0.99> ft/s
+Ball 6 status:  Position = <46.51, 46.51> ft	  Velocity = <-4.97, -4.97> ft/s
+
+Time: 00:00:00.800
+Ball 1 status:  Position = <207.97, 207.97> ft	  Velocity = <9.92, 9.92> ft/s
+Ball 2 status:  Position = <20.28, 20.28> ft	  Velocity = <-99.2, -99.2> ft/s
+Ball 3 status:  Position = <309.44, 309.44> ft	  Velocity = <198.41, 198.41> ft/s
+Ball 4 status:  Position = <87.31, 87.31> ft	  Velocity = <-109.12, -109.12> ft/s
+Ball 5 status:  Position = <20.8, 20.8> ft	  Velocity = <0.99, 0.99> ft/s
+Ball 6 status:  Position = <46.01, 46.01> ft	  Velocity = <-4.96, -4.96> ft/s
+
+Collision detected between ball 2 and ball 5!
+.                                       
+.                                       
+======================================  
+... Testing SoccerSim valid ball set five balls 1.234 second time slice...
+======================================  
+
+
+
+
+Hello! Welcome to the Soccer Simulation Program.
+
+Initial Conditions: 
+
+Time Slice: 1.234
+The field size is 1000 X 1000 feet
+The pole is at x = 321.0 ft & y = 543.0 ft
+Ball 1 status:  Position = <200, 200> ft	  Velocity = <10, 10> ft/s
+Ball 2 status:  Position = <100, 100> ft	  Velocity = <-100, -100> ft/s
+Ball 3 status:  Position = <175, 175> ft	  Velocity = <-110, -110> ft/s
+Ball 4 status:  Position = <20, 20> ft	  Velocity = <1, 1> ft/s
+Ball 5 status:  Position = <50, 50> ft	  Velocity = <-5, -5> ft/s
+
+Time: 00:00:01.234
+Ball 1 status:  Position = <212.34, 212.34> ft	  Velocity = <9.88, 9.88> ft/s
+Ball 2 status:  Position = <-23.4, -23.4> ft	  Velocity = <-98.77, -98.77> ft/s
+Ball 3 status:  Position = <39.26, 39.26> ft	  Velocity = <-108.64, -108.64> ft/s
+Ball 4 status:  Position = <21.23, 21.23> ft	  Velocity = <0.99, 0.99> ft/s
+Ball 5 status:  Position = <43.83, 43.83> ft	  Velocity = <-4.94, -4.94> ft/s
+
+Time: 00:00:02.468
+Ball 1 status:  Position = <224.53, 224.53> ft	  Velocity = <9.75, 9.75> ft/s
+Ball 2 status:  Position = <-145.28, -145.28> ft	  Velocity = <-97.55, -97.55> ft/s
+Ball 3 status:  Position = <-94.8, -94.8> ft	  Velocity = <-107.3, -107.3> ft/s
+Ball 4 status:  Position = <22.45, 22.45> ft	  Velocity = <0.98, 0.98> ft/s
+Ball 5 status:  Position = <37.74, 37.74> ft	  Velocity = <-4.88, -4.88> ft/s
+
+Time: 00:00:03.702
+Ball 1 status:  Position = <236.57, 236.57> ft	  Velocity = <9.63, 9.63> ft/s
+Ball 2 status:  Position = <-265.65, -265.65> ft	  Velocity = <-96.34, -96.34> ft/s
+Ball 3 status:  Position = <-227.22, -227.22> ft	  Velocity = <-105.98, -105.98> ft/s
+Ball 4 status:  Position = <23.66, 23.66> ft	  Velocity = <0.96, 0.96> ft/s
+Ball 5 status:  Position = <31.72, 31.72> ft	  Velocity = <-4.82, -4.82> ft/s
+
+Time: 00:00:04.936
+Ball 1 status:  Position = <248.45, 248.45> ft	  Velocity = <9.52, 9.52> ft/s
+Ball 2 status:  Position = <-384.54, -384.54> ft	  Velocity = <-95.15, -95.15> ft/s
+Ball 3 status:  Position = <-357.99, -357.99> ft	  Velocity = <-104.67, -104.67> ft/s
+Ball 4 status:  Position = <24.85, 24.85> ft	  Velocity = <0.95, 0.95> ft/s
+Ball 5 status:  Position = <25.77, 25.77> ft	  Velocity = <-4.76, -4.76> ft/s
+
+Time: 00:00:06.170
+Ball 1 status:  Position = <260.2, 260.2> ft	  Velocity = <9.4, 9.4> ft/s
+Ball 2 status:  Position = <-501.96, -501.96> ft	  Velocity = <-93.98, -93.98> ft/s
+Ball 3 status:  Position = <-487.16, -487.16> ft	  Velocity = <-103.38, -103.38> ft/s
+Ball 4 status:  Position = <26.02, 26.02> ft	  Velocity = <0.94, 0.94> ft/s
+Ball 5 status:  Position = <19.9, 19.9> ft	  Velocity = <-4.7, -4.7> ft/s
+
+Time: 00:00:07.404
+Ball 1 status:  Position = <271.79, 271.79> ft	  Velocity = <9.28, 9.28> ft/s
+Ball 2 status:  Position = <-617.93, -617.93> ft	  Velocity = <-92.82, -92.82> ft/s
+Ball 3 status:  Position = <-614.72, -614.72> ft	  Velocity = <-102.1, -102.1> ft/s
+Ball 4 status:  Position = <27.18, 27.18> ft	  Velocity = <0.93, 0.93> ft/s
+Ball 5 status:  Position = <14.1, 14.1> ft	  Velocity = <-4.64, -4.64> ft/s
+
+Time: 00:00:08.638
+Ball 1 status:  Position = <283.25, 283.25> ft	  Velocity = <9.17, 9.17> ft/s
+Ball 2 status:  Position = <-732.47, -732.47> ft	  Velocity = <-91.68, -91.68> ft/s
+Ball 3 status:  Position = <-740.72, -740.72> ft	  Velocity = <-100.84, -100.84> ft/s
+Ball 4 status:  Position = <28.32, 28.32> ft	  Velocity = <0.92, 0.92> ft/s
+Ball 5 status:  Position = <8.38, 8.38> ft	  Velocity = <-4.58, -4.58> ft/s
+
+Time: 00:00:09.872
+Ball 1 status:  Position = <294.56, 294.56> ft	  Velocity = <9.05, 9.05> ft/s
+Ball 2 status:  Position = <-845.6, -845.6> ft	  Velocity = <-90.54, -90.54> ft/s
+Ball 3 status:  Position = <-865.16, -865.16> ft	  Velocity = <-99.6, -99.6> ft/s
+Ball 4 status:  Position = <29.46, 29.46> ft	  Velocity = <0.91, 0.91> ft/s
+Ball 5 status:  Position = <2.72, 2.72> ft	  Velocity = <-4.53, -4.53> ft/s
+
+Time: 00:00:11.106
+Ball 1 status:  Position = <305.73, 305.73> ft	  Velocity = <8.94, 8.94> ft/s
+Ball 2 status:  Position = <-957.33, -957.33> ft	  Velocity = <-89.43, -89.43> ft/s
+Ball 3 status:  Position = <-988.06, -988.06> ft	  Velocity = <-98.37, -98.37> ft/s
+Ball 4 status:  Position = <30.57, 30.57> ft	  Velocity = <0.89, 0.89> ft/s
+Ball 5 status:  Position = <-2.87, -2.87> ft	  Velocity = <-4.47, -4.47> ft/s
+
+Time: 00:00:12.340
+Ball 1 status:  Position = <316.77, 316.77> ft	  Velocity = <8.83, 8.83> ft/s
+Ball 2 status:  Position = <-1067.68, -1067.68> ft	  Velocity = <-88.32, -88.32> ft/s
+Ball 3 status:  Position = <-1109.45, -1109.45> ft	  Velocity = <-97.16, -97.16> ft/s
+Ball 4 status:  Position = <31.68, 31.68> ft	  Velocity = <0.88, 0.88> ft/s
+Ball 5 status:  Position = <-8.38, -8.38> ft	  Velocity = <-4.42, -4.42> ft/s
+
+No Collison! Ball 2 is outside the field!
+.                                       
+.                                       
+======================================  
+... Testing SoccerSim valid ball set ten balls 10 second time slice...
+======================================  
+
+
+
+
+Hello! Welcome to the Soccer Simulation Program.
+
+Initial Conditions: 
+
+Time Slice: 10.0
+The field size is 1000 X 1000 feet
+The pole is at x = 321.0 ft & y = 543.0 ft
+Ball 1 status:  Position = <150, 150> ft	  Velocity = <10, 10> ft/s
+Ball 2 status:  Position = <100, 100> ft	  Velocity = <-100, -100> ft/s
+Ball 3 status:  Position = <200, 200> ft	  Velocity = <200, 200> ft/s
+Ball 4 status:  Position = <250, 250> ft	  Velocity = <-110, -110> ft/s
+Ball 5 status:  Position = <20, 20> ft	  Velocity = <1, 1> ft/s
+Ball 6 status:  Position = <50, 50> ft	  Velocity = <-5, -5> ft/s
+Ball 7 status:  Position = <-100, -100> ft	  Velocity = <200, 200> ft/s
+Ball 8 status:  Position = <-200, -200> ft	  Velocity = <300, 300> ft/s
+Ball 9 status:  Position = <-110, -110> ft	  Velocity = <20, 20> ft/s
+Ball 10 status:  Position = <1, 1> ft	  Velocity = <50, 50> ft/s
+
+Time: 00:00:10.000
+Ball 1 status:  Position = <250, 250> ft	  Velocity = <9, 9> ft/s
+Ball 2 status:  Position = <-900, -900> ft	  Velocity = <-90, -90> ft/s
+Ball 3 status:  Position = <2200, 2200> ft	  Velocity = <180, 180> ft/s
+Ball 4 status:  Position = <-850, -850> ft	  Velocity = <-99, -99> ft/s
+Ball 5 status:  Position = <30, 30> ft	  Velocity = <0.9, 0.9> ft/s
+Ball 6 status:  Position = <0, 0> ft	  Velocity = <-4.5, -4.5> ft/s
+Ball 7 status:  Position = <1900, 1900> ft	  Velocity = <180, 180> ft/s
+Ball 8 status:  Position = <2800, 2800> ft	  Velocity = <270, 270> ft/s
+Ball 9 status:  Position = <90, 90> ft	  Velocity = <18, 18> ft/s
+Ball 10 status:  Position = <501, 501> ft	  Velocity = <45, 45> ft/s
+
+No Collison! Ball 3 is outside the field!
+.                                       
+.                                       
+======================================  
+... End of SoccerSim Testing...         
+======================================  
