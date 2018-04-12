@@ -49,7 +49,7 @@ public class BrobInt {
    private byte   sign          = 0;         // "0" is positive, "1" is negative
    private String reversed      = "";        // the backwards version of the internal String representation
    private int[]  intVersion    = null;      // int array for storing the string values; uses the reversed
-   private int[]  intVersion2   = null;      // int array for storing the string values of the BrobInt that is being performed on
+   private int    index         = 0;      // int that keeps track iteration of looping during addition
    private int    length        = 0;         // length of the BronInt
    private int    carry         = 0;         // holds the value of the carry for algebraic processes
 
@@ -83,22 +83,22 @@ public class BrobInt {
       int size   = (int)(Math.ceil( length / CHARS_THAT_FIT ) + 1);
       intVersion = new int[ size ];
       StringBuffer sb = new StringBuffer(internalValue).reverse();
-      System.out.println( "Current State: length = " + length + "\n" +
-                          "       buffered value = " + sb.toString() );
-      while( length >= 8 ) {
+      // System.out.println( "Current State: length = " + length + "\n" +
+      //                     "       buffered value = " + sb.toString() );
+      while (length >= 8) {
          intVersion[i] = Integer.parseInt( internalValue.substring( start, length ) );
          start -= CHARS_THAT_FIT;
          length -= CHARS_THAT_FIT;
-         System.out.print( " length: " + length + ", start: " + start );
-         System.out.println( "  -- converted values[" + i + "] is: " + intVersion[i] );
+         // System.out.print( " length: " + length + ", start: " + start );
+         // System.out.println( "  -- converted values[" + i + "] is: " + intVersion[i] );
          i++;
       }
-      if( length > 0 ) {
+      if (length > 0) {
          intVersion[i] = Integer.parseInt( internalValue.substring( 0, length ) );
-         System.out.print( " length: " + length + ", start: " + start );
-         System.out.println( "  -- converted values[" + i + "] is: " + intVersion[i] );
+         // System.out.print( " length: " + length + ", start: " + start );
+         // System.out.println( "  -- converted values[" + i + "] is: " + intVersion[i] );
       }
-      System.out.println( "Array contents: " + Arrays.toString( intVersion ) );
+      // System.out.println( "Array contents: " + Arrays.toString( intVersion ) );
    }
 
   /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -110,7 +110,7 @@ public class BrobInt {
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
    public boolean validateDigits() {
      String valid = "+-0123456789";
-     for (int i = 0; i < (internalValue.length()) - 1; i++) {
+     for (int i = 0; i < (internalValue.length()); i++) {
        if (! valid.contains(Character.toString(internalValue.charAt(i)))) {
          return false;
        }
@@ -177,16 +177,19 @@ public class BrobInt {
    *  @return BrobInt that is the sum of the value of this BrobInt and the one passed in
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
    public BrobInt add( BrobInt gint ) {
+      carry = 0;
       int[] result = null;
-      intVersion2 = gint.getArray();
-      if ( sign == 0 && gint.getSign() == 0 ) {
+      int[] intVersion2 = gint.getArray();
+      if (sign == 0 && gint.getSign() == 0) {
         System.out.println("They are both positive.");
-        if ( gint.toString().length() > internalValue.length() ) {
+        if (gint.toString().length() > internalValue.length()) {
           System.out.println("pos2 is bigger");
           result = new int[intVersion2.length];
+          System.out.print("Pos 1: ");
           toArray(intVersion);
+          System.out.print("Pos 2: ");
           gint.toArray(intVersion2);
-          for ( int i = 0; i < intVersion.length; i++ ) {
+          for (int i = 0; i < intVersion.length; i++) {
             result[i] = intVersion[i] + intVersion2[i] + carry;
             String stringI = Integer.toString((result[i]));
             if (stringI.length() > 8) {
@@ -195,21 +198,28 @@ public class BrobInt {
             } else {
               carry = 0;
             }
-            // System.out.println(stringI + " " + carry);
+            index = i;
+          }
+          // index -= 1;
+          if (intVersion2.length > index) {
+            // System.out.println("Result greater than pos2");
+            for (int j = index+1; j < (intVersion2.length); j++) {
+              result[j] = intVersion2[j];
+            }
           }
           toArray(result);
-          intVersion = result;
-          String output = toString();
+          // intVersion = result;
+          String output = toStringIntArray(result);
           // System.out.println(output);
           return new BrobInt(output);
 
-        } else if ( internalValue.length() > gint.toString().length() ) {
+        } else if (internalValue.length() > gint.toString().length()) {
           System.out.println("pos1 is bigger");
           result = new int[intVersion.length];
           toArray(intVersion);
           gint.toArray(intVersion2);
 
-          for ( int i = 0; i < intVersion2.length; i++ ) {
+          for (int i = 0; i < intVersion2.length; i++) {
             result[i] = intVersion[i] + intVersion2[i] + carry;
             String stringI = Integer.toString((result[i]));
             if (stringI.length() > 8) {
@@ -221,47 +231,17 @@ public class BrobInt {
             // System.out.println(stringI + " " + carry);
           }
           toArray(result);
-          intVersion = result;
-          String output = toString();
+          // intVersion = result;
+          String output = toStringIntArray(result);
           // System.out.println(output);
           return new BrobInt(output);
         } else {
           System.out.println("same size");
-          
-        }
-
-      } else if ( sign == 1 && gint.getSign() == 1 ) {
-        System.out.println("They are both negative.");
-        if ( gint.toString().length() > internalValue.length() ) {
-          System.out.println("pos2 is bigger");
-          result = new int[intVersion2.length];
-          toArray(intVersion);
-          gint.toArray(intVersion2);
-          for ( int i = 0; i < intVersion.length; i++ ) {
-            result[i] = intVersion[i] + intVersion2[i] + carry;
-            String stringI = Integer.toString((result[i]));
-            if (stringI.length() > 8) {
-              carry = Character.getNumericValue((stringI.charAt(0)));
-              result[i] = Integer.parseInt( new StringBuilder(stringI).deleteCharAt(0).toString() );
-            } else {
-              carry = 0;
-            }
-            // System.out.println(stringI + " " + carry);
-          }
-          toArray(result);
-          intVersion = result;
-          String output = toString();
-          output = new StringBuilder(output).insert(0,"-").toString();
-          System.out.println(output);
-          return new BrobInt(output);
-
-        } else if ( internalValue.length() > gint.toString().length() ) {
-          System.out.println("pos1 is bigger");
           result = new int[intVersion.length];
           toArray(intVersion);
           gint.toArray(intVersion2);
 
-          for ( int i = 0; i < intVersion2.length; i++ ) {
+          for (int i = 0; i < intVersion.length; i++) {
             result[i] = intVersion[i] + intVersion2[i] + carry;
             String stringI = Integer.toString((result[i]));
             if (stringI.length() > 8) {
@@ -273,19 +253,88 @@ public class BrobInt {
             // System.out.println(stringI + " " + carry);
           }
           toArray(result);
-          intVersion = result;
-          String output = toString();
-          output = new StringBuilder(output).insert(0,"-").toString();
+          // intVersion = result;
+          String output = toStringIntArray(result);
+          System.out.println(output);
+          return new BrobInt(output);
+        }
+
+      } else if (sign == 1 && gint.getSign() == 1) {
+        System.out.println("They are both negative.");
+        if (gint.toString().length() > internalValue.length()) {
+          System.out.println("neg2 magnitude is bigger");
+          result = new int[intVersion2.length];
+          toArray(intVersion);
+          gint.toArray(intVersion2);
+          for (int i = 0; i < intVersion.length; i++) {
+            result[i] = intVersion[i] + intVersion2[i] + carry;
+            String stringI = Integer.toString((result[i]));
+            if (stringI.length() > 8) {
+              carry = Character.getNumericValue((stringI.charAt(0)));
+              result[i] = Integer.parseInt( new StringBuilder(stringI).deleteCharAt(0).toString() );
+            } else {
+              carry = 0;
+            }
+            // System.out.println(stringI + " " + carry);
+          }
+          toArray(result);
+          // intVersion = result;
+          String output = toStringIntArray(result);
+          // output = new StringBuilder(output).insert(0,"-").toString();
+          System.out.println(output);
+          return new BrobInt(output);
+
+        } else if (internalValue.length() > gint.toString().length()) {
+          System.out.println("neg1 magnitude is bigger");
+          result = new int[intVersion.length];
+          toArray(intVersion);
+          gint.toArray(intVersion2);
+
+          for (int i = 0; i < intVersion2.length; i++) {
+            result[i] = intVersion[i] + intVersion2[i] + carry;
+            String stringI = Integer.toString((result[i]));
+            if (stringI.length() > 8) {
+              carry = Character.getNumericValue((stringI.charAt(0)));
+              result[i] = Integer.parseInt( new StringBuilder(stringI).deleteCharAt(0).toString() );
+            } else {
+              carry = 0;
+            }
+            // System.out.println(stringI + " " + carry);
+          }
+          toArray(result);
+          // intVersion = result;
+          String output = toStringIntArray(result);
+          // output = new StringBuilder(output).insert(0,"-").toString();
+          System.out.println(output);
+          return new BrobInt(output);
+        } else {
+          System.out.println("same size");
+          result = new int[intVersion.length];
+          toArray(intVersion);
+          gint.toArray(intVersion2);
+
+          for (int i = 0; i < intVersion.length; i++) {
+            result[i] = intVersion[i] + intVersion2[i] + carry;
+            String stringI = Integer.toString((result[i]));
+            if (stringI.length() > 8) {
+              carry = Character.getNumericValue((stringI.charAt(0)));
+              result[i] = Integer.parseInt( new StringBuilder(stringI).deleteCharAt(0).toString() );
+            } else {
+              carry = 0;
+            }
+            // System.out.println(stringI + " " + carry);
+          }
+          toArray(result);
+          // intVersion = result;
+          String output = toStringIntArray(result);
+          // output = new StringBuilder(output).insert(0,"-").toString();
           System.out.println(output);
           return new BrobInt(output);
         }
       } else {
-        System.out.println("One is positive and one is negative");
+        System.out.println("One is positive and one is negative | Need to Implement Subtraction!");
         return new BrobInt("01");
       }
-      return new BrobInt("00");
-
-
    }
 
   // /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -363,9 +412,9 @@ public class BrobInt {
    public static BrobInt valueOf( long value ) throws NumberFormatException {
       BrobInt gi = null;
       try {
-         gi = new BrobInt( new Long( value ).toString() );
+         gi = new BrobInt( Long.toString(value) );
       }
-      catch( NumberFormatException nfe ) {
+      catch (NumberFormatException nfe) {
          System.out.println( "\n  Sorry, the value must be numeric of type long." );
       }
       return gi;
@@ -378,12 +427,50 @@ public class BrobInt {
    public String toString() {
       String Output = "";
       String intVersionOutput = "";
-      for( int i = intVersion.length-1; i >= 0; i-- ) {
-         intVersionOutput = intVersionOutput.concat( Integer.toString( intVersion[i] ) );
+      for (int i = intVersion.length-1; i >= 0; i--) {
+        if (Integer.toString( intVersion[i] ).length() < 8 && i != intVersion.length-1) {
+          String out = Integer.toString( intVersion[i] );
+          for (int j = 0; j < 8 - out.length(); j++) {
+            out = "0" + out;
+          }
+          intVersionOutput = intVersionOutput.concat( out );
+        } else {
+          intVersionOutput = intVersionOutput.concat( Integer.toString( intVersion[i] ) );
+        }
       }
       intVersionOutput = new String( new StringBuffer( intVersionOutput ) );
+      if (sign == 1) {
+        intVersionOutput = "-" + intVersionOutput;
+      }
+      toArray(intVersion);
       return intVersionOutput;
    }
+
+   /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    *  Method to return a String representation of an int array for BrobInt
+    *  @return String  which is the String representation of int array for BrobInt
+    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+    public String toStringIntArray( int[] intArray ) {
+       String Output = "";
+       String intVersionOutput = "";
+       for (int i = intArray.length-1; i >= 0; i--) {
+         if (Integer.toString( intArray[i] ).length() < 8 && i != intArray.length-1) {
+           String out = Integer.toString( intArray[i] );
+           for (int j = 0; j < 8 - out.length(); j++) {
+             out = "0" + out;
+           }
+           intVersionOutput = intVersionOutput.concat( out );
+         } else {
+           intVersionOutput = intVersionOutput.concat( Integer.toString( intArray[i] ) );
+         }
+       }
+       intVersionOutput = new String( new StringBuffer( intVersionOutput ) );
+       if (sign == 1) {
+         intVersionOutput = "-" + intVersionOutput;
+       }
+       toArray(intArray);
+       return intVersionOutput;
+    }
 
   /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    *  Method to display an Array representation of this BrobInt as its ints
@@ -400,8 +487,8 @@ public class BrobInt {
    public static void main( String[] args ) {
       System.out.println( "\n  Hello, world, from the BrobInt program!!\n" );
       System.out.println( "\n   You should run your tests from the BrobIntTester...\n" );
-      BrobInt pos1  = new BrobInt("999999999999999");
-      BrobInt pos2 = new BrobInt("999999999999999");
+      BrobInt pos1  = new BrobInt("-999999999999999");
+      BrobInt pos2 = new BrobInt("-999999999999999");
       pos1.add(pos2);
       System.exit( 0 );
    }
