@@ -601,7 +601,40 @@ public class BrobInt {
    *  @return BrobInt that is the dividend of this BrobInt divided by the one passed in
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
    public BrobInt divide( BrobInt gint ) {
-      throw new UnsupportedOperationException( "\n         Sorry, that operation is not yet implemented." );
+     BrobInt dividend = new BrobInt(toString());
+     BrobInt divisor = new BrobInt(gint.toString());
+     BrobInt result = new BrobInt("1" + gint.toString());
+     int total = 0;
+     if (divisor.equals(new BrobInt("0"))) {
+       System.out.println("Sorry, you cannot divide by zero!");
+     } else if (divisor.equals(new BrobInt("1"))) {
+       return dividend;
+     } else {
+       // System.out.println("The int you get from trying out the method is: " + "395".compareTo("37"));
+       result = dividend.subtract(divisor);
+       if ((result.toString().length() < divisor.toString().length()) || (result.compareTo(divisor) <= 0)) {
+         if ((sign == 1 && gint.getSign() == 0) || (sign == 0 && gint.getSign() == 1)) {
+           return new BrobInt("-" + Integer.toString(total));
+         } else {
+           return new BrobInt(Integer.toString(total));
+         }
+       } else {
+         total += 1;
+         while ((result.toString().length() > divisor.toString().length()) || (result.compareTo(divisor) >= 0)) {
+           // System.out.println(result.getArray().length + " and the other length is " + divisor.getArray().length);
+           // System.out.println("Result: " + result.toString() + "  Divisor: " + divisor.toString());
+           result = result.subtract(divisor);
+           total += 1;
+         }
+         if ((sign == 1 && gint.getSign() == 0) || (sign == 0 && gint.getSign() == 1)) {
+           return new BrobInt("-" + Integer.toString(total));
+         } else {
+           return new BrobInt(Integer.toString(total));
+         }
+       }
+     }
+     System.out.println("An error occurred: ");
+     return new BrobInt("123");
    }
 
   /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -610,7 +643,7 @@ public class BrobInt {
    *  @return BrobInt that is the remainder of division of this BrobInt by the one passed in
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
    public BrobInt remainder( BrobInt gint ) {
-      throw new UnsupportedOperationException( "\n         Sorry, that operation is not yet implemented." );
+      return subtract(gint.multiply(divide(gint)));
    }
 
   /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -621,7 +654,7 @@ public class BrobInt {
    *        THAT was easy.....
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
    public int compareTo( BrobInt gint ) {
-      return (internalValue.compareTo( gint.toString() ));
+      return (toString().compareTo(gint.toString()));
    }
 
   /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
