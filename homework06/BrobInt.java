@@ -620,7 +620,8 @@ public class BrobInt {
          }
        } else {
          total += 1;
-         while ((result.toString().length() > divisor.toString().length()) || (result.compareTo(divisor) >= 0)) {
+         while ((result.toString().length() > divisor.toString().length()) || ( (result.compareTo(divisor) > 0)
+                && result.toString().length() >= divisor.toString().length() ) ) {
            // System.out.println(result.getArray().length + " and the other length is " + divisor.getArray().length);
            // System.out.println("Result: " + result.toString() + "  Divisor: " + divisor.toString());
            result = result.subtract(divisor);
