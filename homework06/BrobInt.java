@@ -47,6 +47,7 @@ public class BrobInt {
    private String internalValue = "";        // internal String representation of this BrobInt
                                              // internal StringBuilder representation of this BrobInt
    private byte   sign          = 0;         // "0" is positive, "1" is negative
+   private int    signTemp      = 0;         // temporary storage for sign of the result
    private String reversed      = "";        // the backwards version of the internal String representation
    private int[]  intVersion    = null;      // int array for storing the string values; uses the reversed
    private int[]  biggerInt     = null;      // int array for storing the bigger int for subtraction
@@ -149,10 +150,7 @@ public class BrobInt {
     *  @return int "0" if it is positive, and int "1" if it is negative
     *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
     public int getSign() {
-      if (sign == 1) {
-        return 1;
-      }
-      return 0;
+      return sign;
     }
 
    /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -202,20 +200,16 @@ public class BrobInt {
             }
             index = i;
           }
-          // index -= 1;
           if (intVersion2.length > index) {
-            // System.out.println("Result greater than pos2");
             for (int j = index+1; j < (intVersion2.length); j++) {
               result[j] = intVersion2[j];
             }
           }
           toArray(result);
-          // intVersion = result;
           String output = toStringIntArray(result);
-          // System.out.println(output);
           return new BrobInt(output);
 
-        } else if (internalValue.length() > gint.toString().length()) {
+        } else if (toString().length() > gint.toString().length()) {
           System.out.println("pos1 is bigger");
           result = new int[intVersion.length];
           toArray(intVersion);
@@ -230,7 +224,6 @@ public class BrobInt {
             } else {
               carry = 0;
             }
-            // System.out.println(stringI + " " + carry);
           }
           toArray(result);
           // intVersion = result;
@@ -263,7 +256,7 @@ public class BrobInt {
 
       } else if (sign == 1 && gint.getSign() == 1) {
         System.out.println("They are both negative.");
-        if (gint.toString().length() > internalValue.length()) {
+        if (gint.toString().length() > toString().length()) {
           System.out.println("neg2 magnitude is bigger");
           result = new int[intVersion2.length];
           toArray(intVersion);
@@ -287,7 +280,7 @@ public class BrobInt {
           System.out.println(gint.toString());
           return new BrobInt(output);
 
-        } else if (internalValue.length() > gint.toString().length()) {
+        } else if (toString().length() > gint.toString().length()) {
           System.out.println("neg1 magnitude is bigger");
           result = new int[intVersion.length];
           toArray(intVersion);
@@ -334,10 +327,14 @@ public class BrobInt {
           System.out.println(output);
           return new BrobInt(output);
         }
-      } else {
-        System.out.println("One is positive and one is negative | Need to Implement Subtraction!");
-        return new BrobInt("01");
+      } else if (sign == 0 && gint.getSign() == 1) {
+        System.out.println("adding pos1 to neg2");
+        return subtract(gint);
+      } else if (sign == 1 && gint.getSign() == 0) {
+        System.out.println("adding neg1 to pos2");
+        return gint.subtract(new BrobInt(toString()));
       }
+      return new BrobInt("123");
    }
 
   // /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -358,8 +355,8 @@ public class BrobInt {
       int [] result = null;
       if (sign == 0 && gint.getSign() == 0) {
         System.out.println("They are both positive.");
-        if (internalValue.length() > gint.toString().length()) {
-          System.out.println("neg 1 is greater in magnitude than neg 2");
+        if (toString().length() > gint.toString().length()) {
+          System.out.println("pos 1 is greater in magnitude than pos 2");
           biggerInt = intVersion;
           smallerInt = gint.getArray();
           result = new int[biggerInt.length];
@@ -376,9 +373,9 @@ public class BrobInt {
           String output = toStringIntArray(result);
           System.out.println(output);
           return new BrobInt(output);
-        } else if (gint.toString().length() > internalValue.length()) {
-          System.out.println("neg 2 is greater in magnitude than neg 1");
-          sign = 1;
+        } else if (gint.toString().length() > toString().length()) {
+          System.out.println("pos 2 is greater in magnitude than pos 1");
+          // sign = 1;
           biggerInt = gint.getArray();
           smallerInt = intVersion;
           result = new int[biggerInt.length];
@@ -394,17 +391,48 @@ public class BrobInt {
           }
           String output = toStringIntArray(result);
           System.out.println(output);
-          return new BrobInt(output);
+          return new BrobInt("-" + output);
         } else {
-          System.out.println("neg 1 has same magnitude as neg 2");
-          return new BrobInt("0");
+          System.out.println("pos 1 has same magnitude as pos 2");
+          for (int i = 0; i < intVersion.length; i++) {
+            if (intVersion[i] > gint.getArray()[i]) {
+              signTemp = 0;
+              biggerInt = intVersion;
+              smallerInt = gint.getArray();
+              break;
+            } else if (gint.getArray()[i] > intVersion[i]) {
+              signTemp = 1;
+              biggerInt = gint.getArray();
+              smallerInt = intVersion;
+              break;
+            } else if ((i == intVersion.length - 1) && (intVersion[i] == gint.getArray()[i])) {
+              return new BrobInt("0");
+            }
+          }
+          result = new int[biggerInt.length];
+          for (int i = 0; i < smallerInt.length; i++) {
+            if (biggerInt[i] < smallerInt[i]) {
+              int temp = biggerInt[i];
+              temp = Integer.parseInt("1"+Integer.toString(biggerInt[i]));
+              result[i] = temp - smallerInt[i];
+              biggerInt[i+1] -= 1;
+            } else {
+              result[i] = biggerInt[i] - smallerInt[i];
+            }
+          }
+          String output = toStringIntArray(result);
+          System.out.println(output);
+          if (signTemp == 1) {
+            return new BrobInt("-" + output);
+          }
+          return new BrobInt(output);
         }
 
       } else if (sign == 1 && gint.getSign() == 1) {
         System.out.println("They are both negative.");
-        if (internalValue.length() > gint.toString().length()) {
+        if (toString().length() > gint.toString().length()) {
           System.out.println("neg 1 is greater in magnitude than neg 2");
-          sign = 1;
+          // sign = 1;
           biggerInt = intVersion;
           smallerInt = gint.getArray();
           result = new int[biggerInt.length];
@@ -421,9 +449,8 @@ public class BrobInt {
           String output = toStringIntArray(result);
           System.out.println(output);
           return new BrobInt(output);
-        } else if (gint.toString().length() > internalValue.length()) {
+        } else if (gint.toString().length() > toString().length()) {
           System.out.println("neg 2 is greater in magnitude than neg 1");
-          sign = 0;
           biggerInt = gint.getArray();
           smallerInt = intVersion;
           result = new int[biggerInt.length];
@@ -439,42 +466,89 @@ public class BrobInt {
           }
           String output = toStringIntArray(result);
           System.out.println(output);
-          return new BrobInt(output);
+          return new BrobInt(new StringBuilder(output).deleteCharAt(0).toString());
         } else {
           System.out.println("neg 1 has same magnitude as neg 2");
-          return new BrobInt("0");
+          for (int i = 0; i < intVersion.length; i++) {
+            if (intVersion[i] > gint.getArray()[i]) {
+              biggerInt = intVersion;
+              smallerInt = gint.getArray();
+              signTemp = 1;
+              break;
+            } else if (gint.getArray()[i] > intVersion[i]) {
+              biggerInt = gint.getArray();
+              smallerInt = intVersion;
+              signTemp = 0;
+              break;
+            } else if ((i == intVersion.length - 1) && (intVersion[i] == gint.getArray()[i])) {
+              return new BrobInt("0");
+            }
+          }
+          result = new int[biggerInt.length];
+          for (int i = 0; i < smallerInt.length; i++) {
+            if (biggerInt[i] < smallerInt[i]) {
+              int temp = biggerInt[i];
+              temp = Integer.parseInt("1"+Integer.toString(biggerInt[i]));
+              result[i] = temp - smallerInt[i];
+              biggerInt[i+1] -= 1;
+            } else {
+              result[i] = biggerInt[i] - smallerInt[i];
+            }
+          }
+          String output = toStringIntArray(result);
+          System.out.println(output);
+          if (signTemp == 0) {
+            return new BrobInt(new StringBuilder(output).deleteCharAt(0).toString());
+          }
+          return new BrobInt(output);
         }
       } else if (sign == 1 && gint.getSign() == 0) {
         System.out.println("neg 1 is negative and pos 2 is positive");
-        System.out.println(toString() + " ||||||||| " + gint.toString());
+        // System.out.println(toString() + " ||||||||| " + gint.toString());
         // System.out.println(toString() + " ||||||||| " + new BrobInt("-" + gint.toString()).toString());
-        if (internalValue.length() > gint.toString().length()) {
+        if (toString().length() > gint.toString().length()) {
           System.out.println("neg 1 is greater in magnitude than pos 2");
           BrobInt temp = new BrobInt(new StringBuilder(toString()).deleteCharAt(0).toString());
           BrobInt finalResult = new BrobInt("-" + temp.add(gint).toString());
           return finalResult;
-        } else if (gint.toString().length() > internalValue.length()) {
+        } else if (gint.toString().length() > toString().length()) {
           System.out.println("pos 2 is greater in magnitude than neg 1");
           BrobInt temp = new BrobInt(new StringBuilder(toString()).deleteCharAt(0).toString());
           BrobInt finalResult = new BrobInt("-" + temp.add(gint).toString());
           return finalResult;
         } else {
           System.out.println("neg 1 has same magnitude as pos 2");
-          return new BrobInt("0");
+          // for (int i = 0; i < intVersion.length; i++) {
+          //   if (intVersion[i] > gint.getArray()[i]) {
+          //     biggerInt = intVersion;
+          //     smallerInt = gint.getArray();
+          //     break;
+          //   } else if (gint.getArray()[i] > intVersion[i]) {
+          //     biggerInt = gint.getArray();
+          //     smallerInt = intVersion;
+          //     break;
+          //   } else if ((i == intVersion.length - 1) && (intVersion[i] == gint.getArray()[i])) {
+          //     return new BrobInt("0");
+          //   }
+          // }
+          BrobInt temp = new BrobInt(new StringBuilder(toString()).deleteCharAt(0).toString());
+          BrobInt finalResult = new BrobInt("-" + temp.add(gint).toString());
+          return finalResult;
         }
       } else if (sign == 0 && gint.getSign() == 1) {
         System.out.println("pos 1 is positive and neg 2 is negative");
-        if (internalValue.length() > gint.toString().length()) {
+        if (toString().length() > gint.toString().length()) {
           System.out.println("pos 1 is greater in magnitude than neg 2");
           BrobInt temp = new BrobInt(new StringBuilder(gint.toString()).deleteCharAt(0).toString());
           return add(temp);
-        } else if (gint.toString().length() > internalValue.length()) {
+        } else if (gint.toString().length() > toString().length()) {
           System.out.println("neg 2 is greater in magnitude than pos 1");
           BrobInt temp = new BrobInt(new StringBuilder(gint.toString()).deleteCharAt(0).toString());
           return add(temp);
         } else {
           System.out.println("pos 1 has same magnitude as neg 2");
-          return new BrobInt("0");
+          BrobInt temp = new BrobInt(new StringBuilder(gint.toString()).deleteCharAt(0).toString());
+          return add(temp);
         }
       }
       return new BrobInt("123");
