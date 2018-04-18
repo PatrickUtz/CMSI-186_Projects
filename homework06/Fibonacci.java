@@ -28,7 +28,6 @@ public class Fibonacci {
    private static String end3        = "rd";
    private static String endRest     = "th";
    private static String cardinality = "";
-
    private static final  int NO_CMD_LINE_ARGS = -1;
    private static final  int BAD_CMD_LINE_ARG = -2;
 
@@ -37,6 +36,7 @@ public class Fibonacci {
    }
 
    public static void main( String[] args ) {
+     // long startTime = System.nanoTime();
       System.out.println( "\n\n   Welcome to the Fibonacci sequence number finder!\n" );
       if( 0 == args.length ) {
          System.out.println( usageMessage );
@@ -72,18 +72,30 @@ public class Fibonacci {
                    break;
       }
 
-      System.out.println( "\n\n   Starting from zero, the " + maxCount + cardinality + " Fibonacci number is: " );
 
-     // NOTE: you may want to handle the first and second Fibonacc numbers as 'special cases'...
+      System.out.print( "\n\n   Starting from zero, the " + maxCount + cardinality + " Fibonacci number is: " );
 
-     // NOTE: you WILL need to initialize your BrobInts to keep track of things....
+      // NOTE: you may want to handle the first and second Fibonacc numbers as 'special cases'...
 
-     // NOTE: this section is just a happy notification that lets the user know to be patient.......
+      // NOTE: you WILL need to initialize your BrobInts to keep track of things....
+
+      // NOTE: this section is just a happy notification that lets the user know to be patient.......
+
+      BrobInt sum = new BrobInt("1");
+      BrobInt previous = new BrobInt("0");
+      BrobInt temp = new BrobInt("1");
       if( maxCount > working ) {
-         System.out.println( "\n                This may take me a while; please be patient!!\n\n" );
+        System.out.println( "\n                This may take me a while; please be patient!!\n\n" );
       }
 
-      System.out.println( "\n\n\n  ...HA!! Like I'm going to do the ENTIRE thing for you.....  *grins*" );
+      for ( int i = 1; i < maxCount; i++) {
+        temp = sum;
+        sum = sum.add(previous);
+        // System.out.println(i + "    " + "adding " + previous.toString() + "  and  " + temp.toString());
+        previous = temp;
+      }
+      System.out.println(" " + previous.toString());
+      System.out.println("\n\n\n  ...ANDDDDD WE'RE DONE! :)");
 
 
       System.exit( 0 );
