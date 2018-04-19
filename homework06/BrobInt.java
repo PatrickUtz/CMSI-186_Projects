@@ -654,23 +654,37 @@ public class BrobInt {
    *        THAT was easy.....
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
    public int compareTo( BrobInt gint ) {
-   if( internalValue.length() > gint.internalValue.length() ) {
-      return 1;
-   } else if( internalValue.length() < gint.internalValue.length() ) {
-      return (-1);
-   } else {
-      for( int i = 0; i < internalValue.length(); i++ ) {
-         Character a = new Character( internalValue.charAt(i) );
-         Character b = new Character( gint.internalValue.charAt(i) );
-         if( new Character(a).compareTo( new Character(b) ) > 0 ) {
-            return 1;
-         } else if( new Character(a).compareTo( new Character(b) ) < 0 ) {
-            return (-1);
+
+     // handle the signs here
+      if( 1 == sign && 0 == gint.sign ) {
+         return -1;
+      } else if( 0 == sign && 1 == gint.sign ) {
+         return 1;
+      }
+
+     // the signs are the same at this point
+     // check the length and return the appropriate value
+     //   1 means this is longer than gint, hence larger
+     //  -1 means gint is longer than this, hence larger
+      if( internalValue.length() > gint.internalValue.length() ) {
+         return 1;
+      } else if( internalValue.length() < gint.internalValue.length() ) {
+         return (-1);
+
+     // otherwise, they are the same length, so compare absolute values
+      } else {
+         for( int i = 0; i < internalValue.length(); i++ ) {
+            Character a = Character.valueOf( internalValue.charAt(i) );
+            Character b = Character.valueOf( gint.internalValue.charAt(i) );
+            if( Character.valueOf(a).compareTo( Character.valueOf(b) ) > 0 ) {
+               return 1;
+            } else if( Character.valueOf(a).compareTo( Character.valueOf(b) ) < 0 ) {
+               return (-1);
+            }
          }
       }
+      return 0;
    }
-   return 0;
-}
 
   /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    *  Method to check if a BrobInt passed as argument is equal to this BrobInt
