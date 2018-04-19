@@ -612,7 +612,7 @@ public class BrobInt {
      } else {
        // System.out.println("The int you get from trying out the method is: " + "395".compareTo("37"));
        result = dividend.subtract(divisor);
-       if ((result.toString().length() < divisor.toString().length()) || (result.compareTo(divisor) <= 0)) {
+       if ( (result.compareTo(divisor) <= 0)) {
          if ((sign == 1 && gint.getSign() == 0) || (sign == 0 && gint.getSign() == 1)) {
            return new BrobInt("-" + Integer.toString(total));
          } else {
@@ -620,8 +620,7 @@ public class BrobInt {
          }
        } else {
          total += 1;
-         while ((result.toString().length() > divisor.toString().length()) || ( (result.compareTo(divisor) > 0)
-                && result.toString().length() >= divisor.toString().length() ) ) {
+         while (result.compareTo(divisor) > 0) {
            // System.out.println(result.getArray().length + " and the other length is " + divisor.getArray().length);
            // System.out.println("Result: " + result.toString() + "  Divisor: " + divisor.toString());
            result = result.subtract(divisor);
@@ -655,8 +654,23 @@ public class BrobInt {
    *        THAT was easy.....
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
    public int compareTo( BrobInt gint ) {
-      return (toString().compareTo(gint.toString()));
+   if( internalValue.length() > gint.internalValue.length() ) {
+      return 1;
+   } else if( internalValue.length() < gint.internalValue.length() ) {
+      return (-1);
+   } else {
+      for( int i = 0; i < internalValue.length(); i++ ) {
+         Character a = new Character( internalValue.charAt(i) );
+         Character b = new Character( gint.internalValue.charAt(i) );
+         if( new Character(a).compareTo( new Character(b) ) > 0 ) {
+            return 1;
+         } else if( new Character(a).compareTo( new Character(b) ) < 0 ) {
+            return (-1);
+         }
+      }
    }
+   return 0;
+}
 
   /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    *  Method to check if a BrobInt passed as argument is equal to this BrobInt
