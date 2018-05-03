@@ -118,7 +118,6 @@ public class DynamicChangeMaker {
           }
         }
       }
-      System.out.println("The result is: " + table[rowCount-1][columnCount-1].toString());
       return table[rowCount-1][columnCount-1];
     }
 
@@ -127,7 +126,25 @@ public class DynamicChangeMaker {
     *  @param  args  String array which contains command line arguments
     *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
     public static void main( String[] args ) {
-       System.out.println( "\n  Hello! Welcome to Dynamic Change Maker! \n" );
-       System.exit( 0 );
+      System.out.println( "\n  Hello! Welcome to Dynamic Change Maker! \n" );
+      // Convert input arguments from command line to ints //
+      try {
+        int inputTargetCents = Integer.parseInt(args[args.length-1]);
+        int[] inputDenoms = new int[args.length-1];
+        for (int i = 0; i < args.length-1; i++) {
+          inputDenoms[i] = Integer.parseInt(args[i]);
+        }
+        Tuple result = makeChangeWithDynamicProgramming(inputDenoms,inputTargetCents);
+
+        // Output results //
+        System.out.println("You can make " + inputTargetCents + " cents as follows: \n");
+        for (int i = 0; i < result.length(); i++) {
+          System.out.println("Use  " + result.getElement(i) + "  [" + inputDenoms[i] + " cent] coins");
+        }
+      }
+      catch( NumberFormatException nfe ) {
+        System.out.println( "Invalid integer values inputted!" );
+        System.exit(-1);
+      }
     }
 }
