@@ -129,10 +129,13 @@ public class DynamicChangeMaker {
       System.out.println( "\n  Hello! Welcome to Dynamic Change Maker! \n" );
       // Convert input arguments from command line to ints //
       try {
-        int inputTargetCents = Integer.parseInt(args[args.length-1]);
-        int[] inputDenoms = new int[args.length-1];
-        for (int i = 0; i < args.length-1; i++) {
-          inputDenoms[i] = Integer.parseInt(args[i]);
+        String inputRawDenoms = args[0];
+        int inputTargetCents = Integer.parseInt(args[1]);
+
+        String[] tokens = inputRawDenoms.split(",");
+        int[] inputDenoms = new int[tokens.length];
+        for (int i = 0; i < tokens.length; i++) {
+          inputDenoms[i] = Integer.parseInt(tokens[i]);
         }
         Tuple result = makeChangeWithDynamicProgramming(inputDenoms,inputTargetCents);
 
