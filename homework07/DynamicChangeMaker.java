@@ -123,7 +123,7 @@ public class DynamicChangeMaker {
 
    /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     *  The main method is used if one wishes to use the program from the command line
-    *  @param  args  String array which contains command line arguments | last input is the target cents
+    *  @param  args  String array which contains command line arguments 
     *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
     public static void main( String[] args ) {
       System.out.println( "\n  Hello! Welcome to Dynamic Change Maker! \n" );
